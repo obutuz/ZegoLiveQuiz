@@ -18,6 +18,8 @@
 #import "ZegoFinalStatViewController.h"
 #import "ZegoActivityInfo.h"
 
+#define COUNTDOWN 5;
+
 static id selfObject;
 static int countdown;
 static int mediaSeq;
@@ -56,7 +58,7 @@ static NSString * const sumKey = @"sum";
 @property (nonatomic, strong) NSMutableDictionary *videoSizeDict;
 
 @property (nonatomic, strong) NSTimer *messageTimer; // 用于消息列表的假数据构造，检查滚动效果
-@property (nonatomic, strong) NSMutableArray *mockedMessageList;
+@property (nonatomic, strong) NSMutableArray *messageList;
 
 @property (nonatomic, strong) ZegoQuizInfo *currentQuiz;
 @property (nonatomic, copy) NSString *receivedInfoType; // question, answer
@@ -93,9 +95,8 @@ static NSString * const sumKey = @"sum";
         [self playStreamDirectly];
     }
     
-//    [self handleFinalResult:nil];
-    
 //    [self startMessageTimer]; // message 假数据演示
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -104,9 +105,9 @@ static NSString * const sumKey = @"sum";
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-//    [self stopMessageTimer];
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
     
+//    [self stopMessageTimer];
     [[ZegoSDKManager api] setMediaSideCallback:nil];
     [super viewWillDisappear:animated];
 }
@@ -191,16 +192,15 @@ static NSString * const sumKey = @"sum";
 #pragma mark -- Timer
 
 - (void)onMessageTimerFired:(id)sender {
-    NSArray *name = @[@"sdfasdfas", @"qqqqq", @"胜多负少", @"哦哦手动阀", @"斯卡多夫斯克", @"顺丰速递", @"123123qweqwe", @"浮点数", @"喝个奶茶", @"生逢大时代！@#"];
-    NSArray *infos = @[@"好刺激好好玩", @"又答对了", @"AAAAAAAAAA", @"BBBBBBBB", @"ccc", @"废话太多了，快开始下一题", @"172161231273813", @"是否可是否对", @"水电费水电费水电费", @"呃呃鹅鹅鹅鹅鹅鹅"];
+    NSArray *name = @[@"radom", @"jack", @"全世界都是傻子", @"普罗米修斯", @"斯卡多夫斯克", @"呵呵呵", @"rose", @"浮点数", @"奶茶奶奶", @"开始纯牛奶"];
+    NSArray *infos = @[@"好刺激好好玩", @"又答对了", @"又答错了！！！", @"BBBBBBBB", @"ccc", @"废话太多了，快开始下一题", @"复活码：435232 复活码：435232 复活码：435232 复活码：435232 复活码：435232 复活码：435232", @"答案当然是C啊，哈哈哈哈哈哈哈哈", @"都是些什么题啊！！垃圾！", @"鹅鹅鹅鹅鹅鹅"];
     for (int i = 0; i < infos.count; i++) {
         ZegoBigRoomMessage *message = [[ZegoBigRoomMessage alloc] init];
         message.fromUserName = name[i];
         message.content = infos[i];
-        [self.mockedMessageList addObject:message];
+        [self.messageList addObject:message];
     }
-    self.messageViewController.messageList = self.mockedMessageList;
-//    [self.messageViewController updateLayout:self.mockedMessageList];
+    self.messageViewController.messageList = self.messageList;
 }
 
 - (void)onCountdownTimerFired:(id)sender {
@@ -229,8 +229,6 @@ static NSString * const sumKey = @"sum";
     
     self.isLoginSucceeded = NO;
     self.isPlaying = NO;
-    
-    self.mockedMessageList = [[NSMutableArray alloc] init];
     
     self.retryPlayIndex = 0;
     self.retryConnectIndex = 0;
@@ -294,6 +292,13 @@ static NSString * const sumKey = @"sum";
     
     self.statViewController = viewController;
     self.statViewController.delegate = self;
+}
+
+- (void)removeFinalStatController {
+    [self.statViewController willMoveToParentViewController:nil];
+    [self.statViewController.view removeFromSuperview];
+    [self.statViewController removeFromParentViewController];
+    self.statViewController = nil;
 }
 
 - (void)playStreamDirectly {
@@ -390,7 +395,7 @@ static NSString * const sumKey = @"sum";
     if (![self.messageTimer isValid]) {
         self.messageTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(onMessageTimerFired:) userInfo:nil repeats:YES];
     }
-
+    
     [self.messageTimer fire];
 }
 
@@ -448,7 +453,7 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
 }
 
 /**
-1.主播向观众发送题目：
+1. 主播向观众发送题目：
 {
     "seq": 1,
     "type": "question",
@@ -520,7 +525,7 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
 }
 
 /**
- 2.主播向观众发送每道题的统计以及正确答案：
+2. 主播向观众发送每道题的统计以及正确答案：
  {
     "seq": 2,
     "type": "answer",
@@ -586,6 +591,27 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
     [self showQuizView:self.currentQuiz];
 }
 
+/**
+3. 主播向观众发送用户列表：
+{
+    "seq": 3,
+    "type": "sum",
+    "data": {
+        "room_id": "roomid123",
+        "activity_id": "123456",
+        "user_list": [
+                      {
+                          "id_name": "555",
+                          "nick_name": "lzp"
+                      },
+                      {
+                          "id_name": "666",
+                          "nick_name": "hhh"
+                      }
+                      ]
+    }
+}
+**/
 - (void)handleFinalResult:(NSDictionary *)info {
     if (!self.currentQuiz) {
         // 直接收到最终结果
@@ -609,6 +635,11 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
         }
     }
     
+    // 如果已存在，则先移除
+    if (self.statViewController) {
+        [self removeFinalStatController];
+    }
+    
     ZegoFinalStatViewController *statController = [[ZegoFinalStatViewController alloc] initWithNibName:@"ZegoFinalStatViewController" bundle:nil];
     statController.winnerList = list;
     statController.totalCount = self.finalUserCount;
@@ -630,7 +661,7 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
 
 - (void)showQuizView:(ZegoQuizInfo *)quizInfo {
     NSLog(@"%s, quizInfo: %@", __func__, quizInfo);
-    countdown = 5;
+    countdown = COUNTDOWN;
     
     // 如果之前的弹框还存在，先清理掉，并停止关联定时器
     if (self.quizView) {
@@ -674,8 +705,8 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
         return;
     }
     
-    [self.mockedMessageList addObjectsFromArray:messageList];
-    self.messageViewController.messageList = self.mockedMessageList;
+    [self.messageList addObjectsFromArray:messageList];
+    self.messageViewController.messageList = self.messageList;
 }
 
 #pragma mark - ZegoLivePlayerDelegate
@@ -789,9 +820,8 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
         roomMessage.category = ZEGO_CHAT;
         roomMessage.priority = ZEGO_DEFAULT;
         
-        [self.mockedMessageList addObject:roomMessage];
-        self.messageViewController.messageList = self.mockedMessageList;
-//        [self.messageViewController updateLayout:self.mockedMessageList];
+        [self.messageList addObject:roomMessage];
+        self.messageViewController.messageList = self.messageList;
         self.customCommentView.commentInput.text = @"";
     }
 }
@@ -824,34 +854,37 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
 }
 
 - (void)relayDataWithAnswer:(NSString *)answer {
-    self.currentQuiz.userAnswer = answer;
-    NSString *relayData = [ZegoQuizParser assembleRelayData:self.activityInfo.activityID questionID:self.currentQuiz.quizID answer:answer revive:3 userData:nil];
+    self.currentQuiz.userAnswer = nil;
+    NSString *relayData = [ZegoQuizParser assembleRelayData:self.activityInfo.activityID questionID:self.currentQuiz.quizID answer:answer userData:nil];
     
     if (relayData == nil) {
         NSLog(@"relay data is nil");
+        [self showAlert:@"发送答案失败" title:@"提示"];
         return;
     }
     
+    // TODO: 上传答案失败要重试
     BOOL invokeSuccess = [[ZegoSDKManager api] relayData:relayData type:ZEGO_RELAY_TYPE_DATI completion:^(int errorCode, NSString *roomId, NSString *relayResult) {
         if (errorCode == 0) {
+            // 发送答案成功才能更新
+            self.currentQuiz.userAnswer = answer;
             NSLog(@"relay data send succeed");
         } else {
             NSLog(@"relay data send failed, errorCode: %d", errorCode);
+            [self showAlert:@"发送答案失败" title:@"提示"];
         }
     }];
     
     if (!invokeSuccess) {
         NSLog(@"relay data invoke failed");
+        [self showAlert:@"发送答案失败" title:@"提示"];
     }
 }
 
 #pragma mark - ZegoFinalStatViewControllerDelegate
 
 - (void)onCloseButtonClicked:(id)sender {
-    [self.statViewController willMoveToParentViewController:nil];
-    [self.statViewController.view removeFromSuperview];
-    [self.statViewController removeFromParentViewController];
-    self.statViewController = nil;
+    [self removeFinalStatController];
 }
 
 #pragma mark - Getter
@@ -861,6 +894,21 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
         _activityInfo = [[ZegoActivityInfo alloc] init];
     }
     return _activityInfo;
+}
+
+- (NSMutableArray *)messageList {
+    if (_messageList == nil) {
+        _messageList = [[NSMutableArray alloc] init];
+    }
+    
+    // 控制 messageList 条目数量，不清理会爆内存
+    if ([_messageList count] > 200) {
+        NSRange range = NSMakeRange([_messageList count] - 100, 100);
+        NSMutableArray *tmp = [[_messageList subarrayWithRange:range] mutableCopy];
+        _messageList = tmp;
+    }
+    
+    return _messageList;
 }
 
 @end

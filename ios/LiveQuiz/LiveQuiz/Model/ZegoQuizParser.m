@@ -13,14 +13,12 @@
 + (NSString *)assembleRelayData:(NSString *)activityID
                      questionID:(NSString *)questionID
                          answer:(NSString *)answer
-                         revive:(int)revive
                        userData:(NSString *)userData {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     
     dict[@"activity_id"] = activityID;
     dict[@"question_id"] = questionID;
     dict[@"answer"] = answer;
-    dict[@"revive"] = @(revive);
     dict[@"user_data"] = userData;
     
     NSError *assembleError;

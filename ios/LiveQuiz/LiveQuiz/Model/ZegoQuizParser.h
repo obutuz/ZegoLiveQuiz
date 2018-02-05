@@ -13,7 +13,6 @@
 + (NSString *)assembleRelayData:(NSString *)activityID
                      questionID:(NSString *)questionID
                          answer:(NSString *)answer
-                         revive:(int)revive
                        userData:(NSString *)userData;
 
 @end

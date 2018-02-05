@@ -26,23 +26,23 @@
     self.reviveLabel.layer.cornerRadius = self.reviveLabel.bounds.size.height / 2.0;
     self.reviveLabel.layer.masksToBounds = YES;
     
-    // 创建一个富文本，并修改富文本中的不同文字的样式
-    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"222"];
+    // 创建富文本文字
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"223"];
     [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, attrStr.length)];
     [attrStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, attrStr.length)];
 
-    // 添加图片并设置
-    NSTextAttachment *attach = [[NSTextAttachment alloc] init];
-    attach.image = [UIImage imageNamed:@"resurrection_fff"];
-    attach.bounds = CGRectMake(0, 0, 21, 25);
-    NSAttributedString *aString = [NSAttributedString attributedStringWithAttachment:attach];
+    // 添加富文本图片
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+    textAttachment.image = [UIImage imageNamed:@"resurrection_fff"];
+    textAttachment.bounds = CGRectMake(0, 0, 21, 25);
+    NSAttributedString *attachString = [NSAttributedString attributedStringWithAttachment:textAttachment];
     
-    // 创建带有图片的富文本
-    [attrStr insertAttributedString:aString atIndex:0];
+    // 图片与文本拼接
+    [attrStr insertAttributedString:attachString atIndex:0];
     
     // 文字垂直居中
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    [paragraphStyle setAlignment:NSTextAlignmentCenter];
+    paragraphStyle.alignment = NSTextAlignmentCenter;
     [attrStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(1, attrStr.length - 1)];
     
     self.reviveLabel.attributedText = attrStr;

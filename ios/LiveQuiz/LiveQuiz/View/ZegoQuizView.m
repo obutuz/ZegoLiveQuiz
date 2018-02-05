@@ -208,15 +208,15 @@
     _quizDescription.text = quizInfo.title;
     
     _optionALabel.text = quizInfo.options[0].optionDesc;
-    _optionACountLabel.text = [NSString stringWithFormat:@"%ld", (long)quizInfo.options[0].optionCount];
+    _optionACountLabel.text = quizInfo.options[0].optionCount > 0 ? [NSString stringWithFormat:@"%ld", (long)quizInfo.options[0].optionCount] : 0;
     _optionACountLabel.hidden = quizInfo.options[0].optionCount > 0 ? NO : YES;
     
     _optionBLabel.text = quizInfo.options[1].optionDesc;
-    _optionBCountLabel.text = [NSString stringWithFormat:@"%ld", (long)quizInfo.options[1].optionCount];
+    _optionBCountLabel.text = quizInfo.options[1].optionCount > 0 ? [NSString stringWithFormat:@"%ld", (long)quizInfo.options[1].optionCount] : 0;
     _optionBCountLabel.hidden = quizInfo.options[1].optionCount > 0 ? NO : YES;
     
     _optionCLabel.text = quizInfo.options[2].optionDesc;
-    _optionCCountLabel.text = [NSString stringWithFormat:@"%ld", (long)quizInfo.options[2].optionCount];
+    _optionCCountLabel.text = quizInfo.options[2].optionCount > 0 ? [NSString stringWithFormat:@"%ld", (long)quizInfo.options[2].optionCount] : 0;
     _optionCCountLabel.hidden = quizInfo.options[2].optionCount > 0 ? NO : YES;
 }
 

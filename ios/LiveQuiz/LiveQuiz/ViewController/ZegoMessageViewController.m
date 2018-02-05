@@ -149,6 +149,7 @@ NSString *const messageCellIdentifier = @"ZegoMessageCellIdentifier";
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@  %@", message.fromUserName, message.content]];
     [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:246/255.0 green:179/255.0 blue:18/255.0 alpha:1.0] range:NSMakeRange(0, message.fromUserName.length)];
     [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0] range:NSMakeRange(message.fromUserName.length, message.content.length + 2)];
+    [attrStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12.0] range:NSMakeRange(message.fromUserName.length, message.content.length + 2)];
     cell.messageView.attributedText = attrStr;
     
     return cell;
