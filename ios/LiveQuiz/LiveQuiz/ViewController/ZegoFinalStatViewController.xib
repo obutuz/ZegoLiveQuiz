@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZegoFinalStatViewController">
+            <connections>
+                <outlet property="statLabel" destination="zKe-Kn-3O5" id="XYZ-Hu-ghv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="winnerTableView" destination="gkL-Wb-RNw" id="yKN-7c-rsG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gkL-Wb-RNw">
+                    <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXy-Yg-hyo">
+                    <rect key="frame" x="0.0" y="60" width="375" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本场答题获胜总人数：10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKe-Kn-3O5">
+                            <rect key="frame" x="30" y="18.5" width="213.5" height="23"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.2901960784" green="0.086274509799999996" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="zKe-Kn-3O5" firstAttribute="centerY" secondItem="hXy-Yg-hyo" secondAttribute="centerY" id="6Th-pe-w8D"/>
+                        <constraint firstAttribute="height" constant="60" id="DP3-th-yIv"/>
+                        <constraint firstItem="zKe-Kn-3O5" firstAttribute="leading" secondItem="hXy-Yg-hyo" secondAttribute="leading" constant="30" id="Gym-0L-0zC"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2a-Yg-pmc">
+                    <rect key="frame" x="329" y="30" width="46" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="oqh-ui-47O"/>
+                        <constraint firstAttribute="width" constant="46" id="wLd-q6-fZR"/>
+                    </constraints>
+                    <state key="normal" title="关闭">
+                        <color key="titleColor" red="0.2901960784" green="0.086274509799999996" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onClose:" destination="-1" eventType="touchUpInside" id="xOl-dx-exn"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hXy-Yg-hyo" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="40" id="3bz-ox-wSy"/>
+                <constraint firstItem="gkL-Wb-RNw" firstAttribute="top" secondItem="hXy-Yg-hyo" secondAttribute="bottom" id="5WN-7v-36f"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="hXy-Yg-hyo" secondAttribute="trailing" id="61x-0a-tho"/>
+                <constraint firstItem="hXy-Yg-hyo" firstAttribute="top" secondItem="E2a-Yg-pmc" secondAttribute="bottom" id="7cR-eO-B7B"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="gkL-Wb-RNw" secondAttribute="bottom" id="7lb-XK-4rK"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="gkL-Wb-RNw" secondAttribute="trailing" id="LOo-Y3-5JF"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="E2a-Yg-pmc" secondAttribute="trailing" id="ZRV-da-XZn"/>
+                <constraint firstItem="hXy-Yg-hyo" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="hd8-7C-Mme"/>
+                <constraint firstItem="gkL-Wb-RNw" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="tqP-Gy-EJE"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

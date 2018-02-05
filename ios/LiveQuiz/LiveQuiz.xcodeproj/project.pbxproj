@@ -1,0 +1,815 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16095751200F213A005ADC96 /* ZegoLiveRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1609574F200F2106005ADC96 /* ZegoLiveRoom.framework */; };
+		16095752200F213A005ADC96 /* ZegoLiveRoom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1609574F200F2106005ADC96 /* ZegoLiveRoom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16095761200F3694005ADC96 /* ZegoLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1609575E200F3694005ADC96 /* ZegoLogTableViewController.m */; };
+		16095766200F4D8C005ADC96 /* ZegoMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16095765200F4D8C005ADC96 /* ZegoMessageCell.xib */; };
+		16095769200F4DC8005ADC96 /* ZegoMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16095768200F4DC8005ADC96 /* ZegoMessageCell.m */; };
+		16095777201049E8005ADC96 /* ZegoMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16095775201049E8005ADC96 /* ZegoMessageViewController.m */; };
+		16095778201049E8005ADC96 /* ZegoMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16095776201049E8005ADC96 /* ZegoMessageViewController.xib */; };
+		1609577A201090D6005ADC96 /* ZegoCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16095779201090D6005ADC96 /* ZegoCommentView.xib */; };
+		1609577D201090E4005ADC96 /* ZegoCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1609577C201090E4005ADC96 /* ZegoCommentView.m */; };
+		1609577F2010DC32005ADC96 /* ZegoQuizView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1609577E2010DC32005ADC96 /* ZegoQuizView.xib */; };
+		160957822010DC40005ADC96 /* ZegoQuizView.m in Sources */ = {isa = PBXBuildFile; fileRef = 160957812010DC40005ADC96 /* ZegoQuizView.m */; };
+		1626229820198DBD00E55A09 /* UIView+TapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1626229720198DBD00E55A09 /* UIView+TapAction.m */; };
+		1626229B2019B43500E55A09 /* ZegoQuizParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1626229A2019B43500E55A09 /* ZegoQuizParser.m */; };
+		1626229E201A0BD700E55A09 /* ZegoQuizInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1626229D201A0BD700E55A09 /* ZegoQuizInfo.m */; };
+		1673CC0A2021CD4E00392B06 /* ZegoFinalStatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673CC082021CD4E00392B06 /* ZegoFinalStatViewController.m */; };
+		1673CC0B2021CD4E00392B06 /* ZegoFinalStatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1673CC092021CD4E00392B06 /* ZegoFinalStatViewController.xib */; };
+		1673CC0E20230B1E00392B06 /* ZegoActivityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673CC0D20230B1E00392B06 /* ZegoActivityInfo.m */; };
+		1673CC1720235C2500392B06 /* ZegoUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673CC1520235C2500392B06 /* ZegoUserCell.m */; };
+		1673CC1820235C2500392B06 /* ZegoUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1673CC1620235C2500392B06 /* ZegoUserCell.xib */; };
+		1680DA59200EF0F100722D02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1680DA58200EF0F100722D02 /* AppDelegate.m */; };
+		1680DA5C200EF0F100722D02 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1680DA5B200EF0F100722D02 /* ViewController.m */; };
+		1680DA5F200EF0F100722D02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1680DA5D200EF0F100722D02 /* Main.storyboard */; };
+		1680DA64200EF0F100722D02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1680DA62200EF0F100722D02 /* LaunchScreen.storyboard */; };
+		1680DA67200EF0F100722D02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1680DA66200EF0F100722D02 /* main.m */; };
+		1680DA70200EF61F00722D02 /* ZegoHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1680DA6F200EF61F00722D02 /* ZegoHomeViewController.m */; };
+		1680DA73200EF63F00722D02 /* ZegoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1680DA72200EF63F00722D02 /* ZegoPlayViewController.m */; };
+		1680DA77200EF75D00722D02 /* ZegoQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1680DA75200EF75D00722D02 /* ZegoQuizViewController.m */; };
+		1680DA78200EF75D00722D02 /* ZegoQuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1680DA76200EF75D00722D02 /* ZegoQuizViewController.xib */; };
+		1680DA87200F016300722D02 /* ZegoRoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1680DA86200F016300722D02 /* ZegoRoomInfo.m */; };
+		1680DA8B200F01CA00722D02 /* ZegoSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1680DA8A200F01CA00722D02 /* ZegoSDKManager.m */; };
+		1680DA8E200F021E00722D02 /* ZegoSetting.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1680DA8D200F021E00722D02 /* ZegoSetting.mm */; };
+		16A2A5E6201596B000BD6E4D /* UILabel+ChangeTextSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A2A5E5201596B000BD6E4D /* UILabel+ChangeTextSpace.m */; };
+		16A2A5E920159A5B00BD6E4D /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16A2A5E12012294A00BD6E4D /* iconfont.ttf */; };
+		16A2A5EC20159BB500BD6E4D /* ZegoLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A2A5EB20159BB400BD6E4D /* ZegoLabel.m */; };
+		16E77E552011D4730070C784 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E77E542011D4730070C784 /* Bugly.framework */; };
+		16E77E582011D4C20070C784 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E77E572011D4C20070C784 /* SystemConfiguration.framework */; };
+		16E77E5A2011D4C90070C784 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E77E592011D4C90070C784 /* Security.framework */; };
+		16E77E5C2011D4D00070C784 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E77E5B2011D4D00070C784 /* libz.tbd */; };
+		16E77E5E2011D4D90070C784 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E77E5D2011D4D90070C784 /* libc++.tbd */; };
+		16E77E602011DA730070C784 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E77E5F2011DA730070C784 /* Assets.xcassets */; };
+		16E77E962011DE5C0070C784 /* YYTextContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E642011DE5C0070C784 /* YYTextContainerView.m */; };
+		16E77E972011DE5C0070C784 /* YYTextDebugOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E662011DE5C0070C784 /* YYTextDebugOption.m */; };
+		16E77E982011DE5C0070C784 /* YYTextEffectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E682011DE5C0070C784 /* YYTextEffectWindow.m */; };
+		16E77E992011DE5C0070C784 /* YYTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E6A2011DE5C0070C784 /* YYTextInput.m */; };
+		16E77E9A2011DE5C0070C784 /* YYTextKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E6C2011DE5C0070C784 /* YYTextKeyboardManager.m */; };
+		16E77E9B2011DE5C0070C784 /* YYTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E6E2011DE5C0070C784 /* YYTextLayout.m */; };
+		16E77E9C2011DE5C0070C784 /* YYTextLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E702011DE5C0070C784 /* YYTextLine.m */; };
+		16E77E9D2011DE5C0070C784 /* YYTextMagnifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E722011DE5C0070C784 /* YYTextMagnifier.m */; };
+		16E77E9E2011DE5C0070C784 /* YYTextSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E742011DE5C0070C784 /* YYTextSelectionView.m */; };
+		16E77E9F2011DE5C0070C784 /* YYTextArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E772011DE5C0070C784 /* YYTextArchiver.m */; };
+		16E77EA02011DE5C0070C784 /* YYTextAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E792011DE5C0070C784 /* YYTextAttribute.m */; };
+		16E77EA12011DE5C0070C784 /* YYTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E7B2011DE5C0070C784 /* YYTextParser.m */; };
+		16E77EA22011DE5C0070C784 /* YYTextRubyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E7D2011DE5C0070C784 /* YYTextRubyAnnotation.m */; };
+		16E77EA32011DE5C0070C784 /* YYTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E7F2011DE5C0070C784 /* YYTextRunDelegate.m */; };
+		16E77EA42011DE5C0070C784 /* NSAttributedString+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E822011DE5C0070C784 /* NSAttributedString+YYText.m */; };
+		16E77EA52011DE5C0070C784 /* NSParagraphStyle+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E842011DE5C0070C784 /* NSParagraphStyle+YYText.m */; };
+		16E77EA62011DE5C0070C784 /* UIPasteboard+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E862011DE5C0070C784 /* UIPasteboard+YYText.m */; };
+		16E77EA72011DE5C0070C784 /* UIView+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E882011DE5C0070C784 /* UIView+YYText.m */; };
+		16E77EA82011DE5C0070C784 /* YYTextAsyncLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E8A2011DE5C0070C784 /* YYTextAsyncLayer.m */; };
+		16E77EA92011DE5C0070C784 /* YYTextTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E8C2011DE5C0070C784 /* YYTextTransaction.m */; };
+		16E77EAA2011DE5C0070C784 /* YYTextUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E8E2011DE5C0070C784 /* YYTextUtilities.m */; };
+		16E77EAB2011DE5C0070C784 /* YYTextWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E902011DE5C0070C784 /* YYTextWeakProxy.m */; };
+		16E77EAC2011DE5C0070C784 /* YYLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E922011DE5C0070C784 /* YYLabel.m */; };
+		16E77EAD2011DE5C0070C784 /* YYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E77E952011DE5C0070C784 /* YYTextView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		16095753200F213A005ADC96 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				16095752200F213A005ADC96 /* ZegoLiveRoom.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1609574F200F2106005ADC96 /* ZegoLiveRoom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZegoLiveRoom.framework; sourceTree = "<group>"; };
+		1609575D200F3694005ADC96 /* ZegoLogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZegoLogTableViewController.h; sourceTree = "<group>"; };
+		1609575E200F3694005ADC96 /* ZegoLogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZegoLogTableViewController.m; sourceTree = "<group>"; };
+		16095765200F4D8C005ADC96 /* ZegoMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZegoMessageCell.xib; sourceTree = "<group>"; };
+		16095767200F4DC8005ADC96 /* ZegoMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoMessageCell.h; sourceTree = "<group>"; };
+		16095768200F4DC8005ADC96 /* ZegoMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoMessageCell.m; sourceTree = "<group>"; };
+		16095774201049E8005ADC96 /* ZegoMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoMessageViewController.h; sourceTree = "<group>"; };
+		16095775201049E8005ADC96 /* ZegoMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoMessageViewController.m; sourceTree = "<group>"; };
+		16095776201049E8005ADC96 /* ZegoMessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZegoMessageViewController.xib; sourceTree = "<group>"; };
+		16095779201090D6005ADC96 /* ZegoCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZegoCommentView.xib; sourceTree = "<group>"; };
+		1609577B201090E4005ADC96 /* ZegoCommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoCommentView.h; sourceTree = "<group>"; };
+		1609577C201090E4005ADC96 /* ZegoCommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoCommentView.m; sourceTree = "<group>"; };
+		1609577E2010DC32005ADC96 /* ZegoQuizView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZegoQuizView.xib; sourceTree = "<group>"; };
+		160957802010DC40005ADC96 /* ZegoQuizView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoQuizView.h; sourceTree = "<group>"; };
+		160957812010DC40005ADC96 /* ZegoQuizView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoQuizView.m; sourceTree = "<group>"; };
+		1626229620198DBD00E55A09 /* UIView+TapAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+TapAction.h"; sourceTree = "<group>"; };
+		1626229720198DBD00E55A09 /* UIView+TapAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+TapAction.m"; sourceTree = "<group>"; };
+		162622992019B43500E55A09 /* ZegoQuizParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoQuizParser.h; sourceTree = "<group>"; };
+		1626229A2019B43500E55A09 /* ZegoQuizParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoQuizParser.m; sourceTree = "<group>"; };
+		1626229C201A0BD700E55A09 /* ZegoQuizInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoQuizInfo.h; sourceTree = "<group>"; };
+		1626229D201A0BD700E55A09 /* ZegoQuizInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoQuizInfo.m; sourceTree = "<group>"; };
+		1673CC072021CD4E00392B06 /* ZegoFinalStatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoFinalStatViewController.h; sourceTree = "<group>"; };
+		1673CC082021CD4E00392B06 /* ZegoFinalStatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoFinalStatViewController.m; sourceTree = "<group>"; };
+		1673CC092021CD4E00392B06 /* ZegoFinalStatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZegoFinalStatViewController.xib; sourceTree = "<group>"; };
+		1673CC0C20230B1E00392B06 /* ZegoActivityInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoActivityInfo.h; sourceTree = "<group>"; };
+		1673CC0D20230B1E00392B06 /* ZegoActivityInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoActivityInfo.m; sourceTree = "<group>"; };
+		1673CC1420235C2500392B06 /* ZegoUserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoUserCell.h; sourceTree = "<group>"; };
+		1673CC1520235C2500392B06 /* ZegoUserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoUserCell.m; sourceTree = "<group>"; };
+		1673CC1620235C2500392B06 /* ZegoUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZegoUserCell.xib; sourceTree = "<group>"; };
+		1680DA54200EF0F100722D02 /* LiveQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1680DA57200EF0F100722D02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1680DA58200EF0F100722D02 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1680DA5A200EF0F100722D02 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1680DA5B200EF0F100722D02 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1680DA5E200EF0F100722D02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1680DA63200EF0F100722D02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1680DA65200EF0F100722D02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1680DA66200EF0F100722D02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1680DA6E200EF61F00722D02 /* ZegoHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoHomeViewController.h; sourceTree = "<group>"; };
+		1680DA6F200EF61F00722D02 /* ZegoHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoHomeViewController.m; sourceTree = "<group>"; };
+		1680DA71200EF63F00722D02 /* ZegoPlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoPlayViewController.h; sourceTree = "<group>"; };
+		1680DA72200EF63F00722D02 /* ZegoPlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoPlayViewController.m; sourceTree = "<group>"; };
+		1680DA74200EF75D00722D02 /* ZegoQuizViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoQuizViewController.h; sourceTree = "<group>"; };
+		1680DA75200EF75D00722D02 /* ZegoQuizViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoQuizViewController.m; sourceTree = "<group>"; };
+		1680DA76200EF75D00722D02 /* ZegoQuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZegoQuizViewController.xib; sourceTree = "<group>"; };
+		1680DA85200F016300722D02 /* ZegoRoomInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoRoomInfo.h; sourceTree = "<group>"; };
+		1680DA86200F016300722D02 /* ZegoRoomInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoRoomInfo.m; sourceTree = "<group>"; };
+		1680DA89200F01CA00722D02 /* ZegoSDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoSDKManager.h; sourceTree = "<group>"; };
+		1680DA8A200F01CA00722D02 /* ZegoSDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoSDKManager.m; sourceTree = "<group>"; };
+		1680DA8C200F021E00722D02 /* ZegoSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoSetting.h; sourceTree = "<group>"; };
+		1680DA8D200F021E00722D02 /* ZegoSetting.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ZegoSetting.mm; sourceTree = "<group>"; };
+		16A2A5E12012294A00BD6E4D /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		16A2A5E4201596B000BD6E4D /* UILabel+ChangeTextSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+ChangeTextSpace.h"; sourceTree = "<group>"; };
+		16A2A5E5201596B000BD6E4D /* UILabel+ChangeTextSpace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ChangeTextSpace.m"; sourceTree = "<group>"; };
+		16A2A5EA20159BB400BD6E4D /* ZegoLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoLabel.h; sourceTree = "<group>"; };
+		16A2A5EB20159BB400BD6E4D /* ZegoLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoLabel.m; sourceTree = "<group>"; };
+		16E77E542011D4730070C784 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
+		16E77E572011D4C20070C784 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		16E77E592011D4C90070C784 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		16E77E5B2011D4D00070C784 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		16E77E5D2011D4D90070C784 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		16E77E5F2011DA730070C784 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16E77E632011DE5C0070C784 /* YYTextContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextContainerView.h; sourceTree = "<group>"; };
+		16E77E642011DE5C0070C784 /* YYTextContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextContainerView.m; sourceTree = "<group>"; };
+		16E77E652011DE5C0070C784 /* YYTextDebugOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextDebugOption.h; sourceTree = "<group>"; };
+		16E77E662011DE5C0070C784 /* YYTextDebugOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextDebugOption.m; sourceTree = "<group>"; };
+		16E77E672011DE5C0070C784 /* YYTextEffectWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextEffectWindow.h; sourceTree = "<group>"; };
+		16E77E682011DE5C0070C784 /* YYTextEffectWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextEffectWindow.m; sourceTree = "<group>"; };
+		16E77E692011DE5C0070C784 /* YYTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextInput.h; sourceTree = "<group>"; };
+		16E77E6A2011DE5C0070C784 /* YYTextInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextInput.m; sourceTree = "<group>"; };
+		16E77E6B2011DE5C0070C784 /* YYTextKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextKeyboardManager.h; sourceTree = "<group>"; };
+		16E77E6C2011DE5C0070C784 /* YYTextKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextKeyboardManager.m; sourceTree = "<group>"; };
+		16E77E6D2011DE5C0070C784 /* YYTextLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextLayout.h; sourceTree = "<group>"; };
+		16E77E6E2011DE5C0070C784 /* YYTextLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextLayout.m; sourceTree = "<group>"; };
+		16E77E6F2011DE5C0070C784 /* YYTextLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextLine.h; sourceTree = "<group>"; };
+		16E77E702011DE5C0070C784 /* YYTextLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextLine.m; sourceTree = "<group>"; };
+		16E77E712011DE5C0070C784 /* YYTextMagnifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextMagnifier.h; sourceTree = "<group>"; };
+		16E77E722011DE5C0070C784 /* YYTextMagnifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextMagnifier.m; sourceTree = "<group>"; };
+		16E77E732011DE5C0070C784 /* YYTextSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextSelectionView.h; sourceTree = "<group>"; };
+		16E77E742011DE5C0070C784 /* YYTextSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextSelectionView.m; sourceTree = "<group>"; };
+		16E77E762011DE5C0070C784 /* YYTextArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextArchiver.h; sourceTree = "<group>"; };
+		16E77E772011DE5C0070C784 /* YYTextArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextArchiver.m; sourceTree = "<group>"; };
+		16E77E782011DE5C0070C784 /* YYTextAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextAttribute.h; sourceTree = "<group>"; };
+		16E77E792011DE5C0070C784 /* YYTextAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextAttribute.m; sourceTree = "<group>"; };
+		16E77E7A2011DE5C0070C784 /* YYTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextParser.h; sourceTree = "<group>"; };
+		16E77E7B2011DE5C0070C784 /* YYTextParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextParser.m; sourceTree = "<group>"; };
+		16E77E7C2011DE5C0070C784 /* YYTextRubyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextRubyAnnotation.h; sourceTree = "<group>"; };
+		16E77E7D2011DE5C0070C784 /* YYTextRubyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextRubyAnnotation.m; sourceTree = "<group>"; };
+		16E77E7E2011DE5C0070C784 /* YYTextRunDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextRunDelegate.h; sourceTree = "<group>"; };
+		16E77E7F2011DE5C0070C784 /* YYTextRunDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextRunDelegate.m; sourceTree = "<group>"; };
+		16E77E812011DE5C0070C784 /* NSAttributedString+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+YYText.h"; sourceTree = "<group>"; };
+		16E77E822011DE5C0070C784 /* NSAttributedString+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+YYText.m"; sourceTree = "<group>"; };
+		16E77E832011DE5C0070C784 /* NSParagraphStyle+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSParagraphStyle+YYText.h"; sourceTree = "<group>"; };
+		16E77E842011DE5C0070C784 /* NSParagraphStyle+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSParagraphStyle+YYText.m"; sourceTree = "<group>"; };
+		16E77E852011DE5C0070C784 /* UIPasteboard+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPasteboard+YYText.h"; sourceTree = "<group>"; };
+		16E77E862011DE5C0070C784 /* UIPasteboard+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPasteboard+YYText.m"; sourceTree = "<group>"; };
+		16E77E872011DE5C0070C784 /* UIView+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YYText.h"; sourceTree = "<group>"; };
+		16E77E882011DE5C0070C784 /* UIView+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYText.m"; sourceTree = "<group>"; };
+		16E77E892011DE5C0070C784 /* YYTextAsyncLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextAsyncLayer.h; sourceTree = "<group>"; };
+		16E77E8A2011DE5C0070C784 /* YYTextAsyncLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextAsyncLayer.m; sourceTree = "<group>"; };
+		16E77E8B2011DE5C0070C784 /* YYTextTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextTransaction.h; sourceTree = "<group>"; };
+		16E77E8C2011DE5C0070C784 /* YYTextTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextTransaction.m; sourceTree = "<group>"; };
+		16E77E8D2011DE5C0070C784 /* YYTextUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextUtilities.h; sourceTree = "<group>"; };
+		16E77E8E2011DE5C0070C784 /* YYTextUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextUtilities.m; sourceTree = "<group>"; };
+		16E77E8F2011DE5C0070C784 /* YYTextWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextWeakProxy.h; sourceTree = "<group>"; };
+		16E77E902011DE5C0070C784 /* YYTextWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextWeakProxy.m; sourceTree = "<group>"; };
+		16E77E912011DE5C0070C784 /* YYLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYLabel.h; sourceTree = "<group>"; };
+		16E77E922011DE5C0070C784 /* YYLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYLabel.m; sourceTree = "<group>"; };
+		16E77E932011DE5C0070C784 /* YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYText.h; sourceTree = "<group>"; };
+		16E77E942011DE5C0070C784 /* YYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextView.h; sourceTree = "<group>"; };
+		16E77E952011DE5C0070C784 /* YYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1680DA51200EF0F100722D02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16E77E5E2011D4D90070C784 /* libc++.tbd in Frameworks */,
+				16E77E5C2011D4D00070C784 /* libz.tbd in Frameworks */,
+				16E77E5A2011D4C90070C784 /* Security.framework in Frameworks */,
+				16E77E582011D4C20070C784 /* SystemConfiguration.framework in Frameworks */,
+				16E77E552011D4730070C784 /* Bugly.framework in Frameworks */,
+				16095751200F213A005ADC96 /* ZegoLiveRoom.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16095754200F22B1005ADC96 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1680DA89200F01CA00722D02 /* ZegoSDKManager.h */,
+				1680DA8A200F01CA00722D02 /* ZegoSDKManager.m */,
+				1680DA8C200F021E00722D02 /* ZegoSetting.h */,
+				1680DA8D200F021E00722D02 /* ZegoSetting.mm */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		1609575C200F3694005ADC96 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				1609575D200F3694005ADC96 /* ZegoLogTableViewController.h */,
+				1609575E200F3694005ADC96 /* ZegoLogTableViewController.m */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		16095764200F4D76005ADC96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				16095765200F4D8C005ADC96 /* ZegoMessageCell.xib */,
+				16095767200F4DC8005ADC96 /* ZegoMessageCell.h */,
+				16095768200F4DC8005ADC96 /* ZegoMessageCell.m */,
+				16095779201090D6005ADC96 /* ZegoCommentView.xib */,
+				1609577B201090E4005ADC96 /* ZegoCommentView.h */,
+				1609577C201090E4005ADC96 /* ZegoCommentView.m */,
+				1609577E2010DC32005ADC96 /* ZegoQuizView.xib */,
+				160957802010DC40005ADC96 /* ZegoQuizView.h */,
+				160957812010DC40005ADC96 /* ZegoQuizView.m */,
+				16A2A5EA20159BB400BD6E4D /* ZegoLabel.h */,
+				16A2A5EB20159BB400BD6E4D /* ZegoLabel.m */,
+				1673CC1420235C2500392B06 /* ZegoUserCell.h */,
+				1673CC1520235C2500392B06 /* ZegoUserCell.m */,
+				1673CC1620235C2500392B06 /* ZegoUserCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1680DA4B200EF0F100722D02 = {
+			isa = PBXGroup;
+			children = (
+				1680DA93200F034A00722D02 /* thirdLib */,
+				1680DA92200F033600722D02 /* libs */,
+				1680DA56200EF0F100722D02 /* LiveQuiz */,
+				1680DA55200EF0F100722D02 /* Products */,
+				16E77E562011D4C10070C784 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1680DA55200EF0F100722D02 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1680DA54200EF0F100722D02 /* LiveQuiz.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1680DA56200EF0F100722D02 /* LiveQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				16A2A5E3201595F700BD6E4D /* Category */,
+				16E77E612011DE5C0070C784 /* YYText */,
+				16095764200F4D76005ADC96 /* View */,
+				1609575C200F3694005ADC96 /* Log */,
+				16095754200F22B1005ADC96 /* Manager */,
+				1680DA7E200EF9D900722D02 /* Model */,
+				1680DA6D200EF5FC00722D02 /* ViewController */,
+				1680DA57200EF0F100722D02 /* AppDelegate.h */,
+				1680DA58200EF0F100722D02 /* AppDelegate.m */,
+				1680DA5A200EF0F100722D02 /* ViewController.h */,
+				1680DA5B200EF0F100722D02 /* ViewController.m */,
+				1680DA5D200EF0F100722D02 /* Main.storyboard */,
+				1680DA62200EF0F100722D02 /* LaunchScreen.storyboard */,
+				16A2A5E12012294A00BD6E4D /* iconfont.ttf */,
+				16E77E5F2011DA730070C784 /* Assets.xcassets */,
+				1680DA65200EF0F100722D02 /* Info.plist */,
+				1680DA66200EF0F100722D02 /* main.m */,
+			);
+			path = LiveQuiz;
+			sourceTree = "<group>";
+		};
+		1680DA6D200EF5FC00722D02 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1680DA6E200EF61F00722D02 /* ZegoHomeViewController.h */,
+				1680DA6F200EF61F00722D02 /* ZegoHomeViewController.m */,
+				1680DA71200EF63F00722D02 /* ZegoPlayViewController.h */,
+				1680DA72200EF63F00722D02 /* ZegoPlayViewController.m */,
+				1680DA74200EF75D00722D02 /* ZegoQuizViewController.h */,
+				1680DA75200EF75D00722D02 /* ZegoQuizViewController.m */,
+				1680DA76200EF75D00722D02 /* ZegoQuizViewController.xib */,
+				16095774201049E8005ADC96 /* ZegoMessageViewController.h */,
+				16095775201049E8005ADC96 /* ZegoMessageViewController.m */,
+				16095776201049E8005ADC96 /* ZegoMessageViewController.xib */,
+				1673CC072021CD4E00392B06 /* ZegoFinalStatViewController.h */,
+				1673CC082021CD4E00392B06 /* ZegoFinalStatViewController.m */,
+				1673CC092021CD4E00392B06 /* ZegoFinalStatViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1680DA7E200EF9D900722D02 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1673CC0C20230B1E00392B06 /* ZegoActivityInfo.h */,
+				1673CC0D20230B1E00392B06 /* ZegoActivityInfo.m */,
+				1680DA85200F016300722D02 /* ZegoRoomInfo.h */,
+				1680DA86200F016300722D02 /* ZegoRoomInfo.m */,
+				162622992019B43500E55A09 /* ZegoQuizParser.h */,
+				1626229A2019B43500E55A09 /* ZegoQuizParser.m */,
+				1626229C201A0BD700E55A09 /* ZegoQuizInfo.h */,
+				1626229D201A0BD700E55A09 /* ZegoQuizInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1680DA92200F033600722D02 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				1609574F200F2106005ADC96 /* ZegoLiveRoom.framework */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		1680DA93200F034A00722D02 /* thirdLib */ = {
+			isa = PBXGroup;
+			children = (
+				16E77E542011D4730070C784 /* Bugly.framework */,
+			);
+			path = thirdLib;
+			sourceTree = "<group>";
+		};
+		16A2A5E3201595F700BD6E4D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				16A2A5E4201596B000BD6E4D /* UILabel+ChangeTextSpace.h */,
+				16A2A5E5201596B000BD6E4D /* UILabel+ChangeTextSpace.m */,
+				1626229620198DBD00E55A09 /* UIView+TapAction.h */,
+				1626229720198DBD00E55A09 /* UIView+TapAction.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		16E77E562011D4C10070C784 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16E77E5D2011D4D90070C784 /* libc++.tbd */,
+				16E77E5B2011D4D00070C784 /* libz.tbd */,
+				16E77E592011D4C90070C784 /* Security.framework */,
+				16E77E572011D4C20070C784 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16E77E612011DE5C0070C784 /* YYText */ = {
+			isa = PBXGroup;
+			children = (
+				16E77E622011DE5C0070C784 /* Component */,
+				16E77E752011DE5C0070C784 /* String */,
+				16E77E802011DE5C0070C784 /* Utility */,
+				16E77E912011DE5C0070C784 /* YYLabel.h */,
+				16E77E922011DE5C0070C784 /* YYLabel.m */,
+				16E77E932011DE5C0070C784 /* YYText.h */,
+				16E77E942011DE5C0070C784 /* YYTextView.h */,
+				16E77E952011DE5C0070C784 /* YYTextView.m */,
+			);
+			path = YYText;
+			sourceTree = "<group>";
+		};
+		16E77E622011DE5C0070C784 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				16E77E632011DE5C0070C784 /* YYTextContainerView.h */,
+				16E77E642011DE5C0070C784 /* YYTextContainerView.m */,
+				16E77E652011DE5C0070C784 /* YYTextDebugOption.h */,
+				16E77E662011DE5C0070C784 /* YYTextDebugOption.m */,
+				16E77E672011DE5C0070C784 /* YYTextEffectWindow.h */,
+				16E77E682011DE5C0070C784 /* YYTextEffectWindow.m */,
+				16E77E692011DE5C0070C784 /* YYTextInput.h */,
+				16E77E6A2011DE5C0070C784 /* YYTextInput.m */,
+				16E77E6B2011DE5C0070C784 /* YYTextKeyboardManager.h */,
+				16E77E6C2011DE5C0070C784 /* YYTextKeyboardManager.m */,
+				16E77E6D2011DE5C0070C784 /* YYTextLayout.h */,
+				16E77E6E2011DE5C0070C784 /* YYTextLayout.m */,
+				16E77E6F2011DE5C0070C784 /* YYTextLine.h */,
+				16E77E702011DE5C0070C784 /* YYTextLine.m */,
+				16E77E712011DE5C0070C784 /* YYTextMagnifier.h */,
+				16E77E722011DE5C0070C784 /* YYTextMagnifier.m */,
+				16E77E732011DE5C0070C784 /* YYTextSelectionView.h */,
+				16E77E742011DE5C0070C784 /* YYTextSelectionView.m */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		16E77E752011DE5C0070C784 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				16E77E762011DE5C0070C784 /* YYTextArchiver.h */,
+				16E77E772011DE5C0070C784 /* YYTextArchiver.m */,
+				16E77E782011DE5C0070C784 /* YYTextAttribute.h */,
+				16E77E792011DE5C0070C784 /* YYTextAttribute.m */,
+				16E77E7A2011DE5C0070C784 /* YYTextParser.h */,
+				16E77E7B2011DE5C0070C784 /* YYTextParser.m */,
+				16E77E7C2011DE5C0070C784 /* YYTextRubyAnnotation.h */,
+				16E77E7D2011DE5C0070C784 /* YYTextRubyAnnotation.m */,
+				16E77E7E2011DE5C0070C784 /* YYTextRunDelegate.h */,
+				16E77E7F2011DE5C0070C784 /* YYTextRunDelegate.m */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		16E77E802011DE5C0070C784 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				16E77E812011DE5C0070C784 /* NSAttributedString+YYText.h */,
+				16E77E822011DE5C0070C784 /* NSAttributedString+YYText.m */,
+				16E77E832011DE5C0070C784 /* NSParagraphStyle+YYText.h */,
+				16E77E842011DE5C0070C784 /* NSParagraphStyle+YYText.m */,
+				16E77E852011DE5C0070C784 /* UIPasteboard+YYText.h */,
+				16E77E862011DE5C0070C784 /* UIPasteboard+YYText.m */,
+				16E77E872011DE5C0070C784 /* UIView+YYText.h */,
+				16E77E882011DE5C0070C784 /* UIView+YYText.m */,
+				16E77E892011DE5C0070C784 /* YYTextAsyncLayer.h */,
+				16E77E8A2011DE5C0070C784 /* YYTextAsyncLayer.m */,
+				16E77E8B2011DE5C0070C784 /* YYTextTransaction.h */,
+				16E77E8C2011DE5C0070C784 /* YYTextTransaction.m */,
+				16E77E8D2011DE5C0070C784 /* YYTextUtilities.h */,
+				16E77E8E2011DE5C0070C784 /* YYTextUtilities.m */,
+				16E77E8F2011DE5C0070C784 /* YYTextWeakProxy.h */,
+				16E77E902011DE5C0070C784 /* YYTextWeakProxy.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1680DA53200EF0F100722D02 /* LiveQuiz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1680DA6A200EF0F100722D02 /* Build configuration list for PBXNativeTarget "LiveQuiz" */;
+			buildPhases = (
+				165507A520284EE4007C30B7 /* Create Framework */,
+				165507A620284F3F007C30B7 /* Copy Framework */,
+				1680DA50200EF0F100722D02 /* Sources */,
+				1680DA51200EF0F100722D02 /* Frameworks */,
+				1680DA52200EF0F100722D02 /* Resources */,
+				16095753200F213A005ADC96 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LiveQuiz;
+			productName = LiveQuiz;
+			productReference = 1680DA54200EF0F100722D02 /* LiveQuiz.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1680DA4C200EF0F100722D02 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = zego;
+				TargetAttributes = {
+					1680DA53200EF0F100722D02 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 1680DA4F200EF0F100722D02 /* Build configuration list for PBXProject "LiveQuiz" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1680DA4B200EF0F100722D02;
+			productRefGroup = 1680DA55200EF0F100722D02 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1680DA53200EF0F100722D02 /* LiveQuiz */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1680DA52200EF0F100722D02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1673CC0B2021CD4E00392B06 /* ZegoFinalStatViewController.xib in Resources */,
+				16A2A5E920159A5B00BD6E4D /* iconfont.ttf in Resources */,
+				1609577A201090D6005ADC96 /* ZegoCommentView.xib in Resources */,
+				16095778201049E8005ADC96 /* ZegoMessageViewController.xib in Resources */,
+				1609577F2010DC32005ADC96 /* ZegoQuizView.xib in Resources */,
+				1673CC1820235C2500392B06 /* ZegoUserCell.xib in Resources */,
+				16095766200F4D8C005ADC96 /* ZegoMessageCell.xib in Resources */,
+				1680DA78200EF75D00722D02 /* ZegoQuizViewController.xib in Resources */,
+				1680DA64200EF0F100722D02 /* LaunchScreen.storyboard in Resources */,
+				16E77E602011DA730070C784 /* Assets.xcassets in Resources */,
+				1680DA5F200EF0F100722D02 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		165507A520284EE4007C30B7 /* Create Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Create Framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env python";
+			shellScript = "import os\nimport subprocess\n\naction = os.getenv('ACTION')\nconfiguration = os.getenv('CONFIGURATION')\nif action == \"install\":\n    exit(0)\nif configuration == \"Release\":\n    exit(0)\n\ncurrent_folder = os.getenv('PROJECT_DIR')\ncopy_framework_path = os.path.join(current_folder, \"..\", \"copy_framework_new.py\")\n\nif os.path.exists(copy_framework_path):\n    log_file = os.path.join(current_folder, \"..\", \"log.txt\")\n    with open(log_file, \"w\") as outfile:\n        arguments = [copy_framework_path, '-repackage']\n        subprocess.call(arguments, stdout=outfile)";
+		};
+		165507A620284F3F007C30B7 /* Copy Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env python";
+			shellScript = "import os\nimport shutil\n\ncurrent_folder = os.getenv('PROJECT_DIR')\naction = os.getenv('ACTION')\nconfiguration = os.getenv('CONFIGURATION')\n\nif action == \"install\":\n    source_folder = \"iphoneos\"\nelse:\n    source_folder = \"iphoneos_simulator\"\n\nsource_framework_folder = os.path.join(current_folder, \"libs\", \"ZegoLiveRoom-all\", source_folder, \"ZegoLiveRoom.framework\")\ndest_framework_folder = os.path.join(current_folder, \"libs\", \"ZegoLiveRoom.framework\")\n\nif os.path.exists(dest_framework_folder):\n    shutil.rmtree(dest_framework_folder, ignore_errors=True)\n\nif os.path.exists(source_framework_folder):\n    shutil.copytree(source_framework_folder, dest_framework_folder)\n    log_name = os.path.join(current_folder, \"libs\", \"zegoliveroom.version.txt\")\n    with open(log_name, 'w') as f:\n        if action == \"install\":\n            f.write('iphoneos \\n')\n        else:\n            f.write('iphoneos & simulator \\n')\n        f.write(configuration)\n    f.close()\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1680DA50200EF0F100722D02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16E77E982011DE5C0070C784 /* YYTextEffectWindow.m in Sources */,
+				16E77EAC2011DE5C0070C784 /* YYLabel.m in Sources */,
+				1680DA87200F016300722D02 /* ZegoRoomInfo.m in Sources */,
+				1626229820198DBD00E55A09 /* UIView+TapAction.m in Sources */,
+				16E77EA92011DE5C0070C784 /* YYTextTransaction.m in Sources */,
+				1626229E201A0BD700E55A09 /* ZegoQuizInfo.m in Sources */,
+				1626229B2019B43500E55A09 /* ZegoQuizParser.m in Sources */,
+				16E77EA72011DE5C0070C784 /* UIView+YYText.m in Sources */,
+				160957822010DC40005ADC96 /* ZegoQuizView.m in Sources */,
+				16E77EA82011DE5C0070C784 /* YYTextAsyncLayer.m in Sources */,
+				16E77E9A2011DE5C0070C784 /* YYTextKeyboardManager.m in Sources */,
+				1680DA70200EF61F00722D02 /* ZegoHomeViewController.m in Sources */,
+				16095769200F4DC8005ADC96 /* ZegoMessageCell.m in Sources */,
+				16E77EA62011DE5C0070C784 /* UIPasteboard+YYText.m in Sources */,
+				1673CC0E20230B1E00392B06 /* ZegoActivityInfo.m in Sources */,
+				16E77EAB2011DE5C0070C784 /* YYTextWeakProxy.m in Sources */,
+				16E77E972011DE5C0070C784 /* YYTextDebugOption.m in Sources */,
+				16A2A5EC20159BB500BD6E4D /* ZegoLabel.m in Sources */,
+				1680DA5C200EF0F100722D02 /* ViewController.m in Sources */,
+				16095777201049E8005ADC96 /* ZegoMessageViewController.m in Sources */,
+				16E77EAD2011DE5C0070C784 /* YYTextView.m in Sources */,
+				1680DA8B200F01CA00722D02 /* ZegoSDKManager.m in Sources */,
+				16E77EAA2011DE5C0070C784 /* YYTextUtilities.m in Sources */,
+				16E77E9E2011DE5C0070C784 /* YYTextSelectionView.m in Sources */,
+				1680DA77200EF75D00722D02 /* ZegoQuizViewController.m in Sources */,
+				16E77E9F2011DE5C0070C784 /* YYTextArchiver.m in Sources */,
+				16E77E9D2011DE5C0070C784 /* YYTextMagnifier.m in Sources */,
+				16E77E962011DE5C0070C784 /* YYTextContainerView.m in Sources */,
+				16E77EA42011DE5C0070C784 /* NSAttributedString+YYText.m in Sources */,
+				16E77EA12011DE5C0070C784 /* YYTextParser.m in Sources */,
+				1680DA8E200F021E00722D02 /* ZegoSetting.mm in Sources */,
+				16E77EA32011DE5C0070C784 /* YYTextRunDelegate.m in Sources */,
+				16095761200F3694005ADC96 /* ZegoLogTableViewController.m in Sources */,
+				16E77E992011DE5C0070C784 /* YYTextInput.m in Sources */,
+				16A2A5E6201596B000BD6E4D /* UILabel+ChangeTextSpace.m in Sources */,
+				16E77EA02011DE5C0070C784 /* YYTextAttribute.m in Sources */,
+				1680DA67200EF0F100722D02 /* main.m in Sources */,
+				1680DA59200EF0F100722D02 /* AppDelegate.m in Sources */,
+				16E77EA22011DE5C0070C784 /* YYTextRubyAnnotation.m in Sources */,
+				1609577D201090E4005ADC96 /* ZegoCommentView.m in Sources */,
+				16E77E9C2011DE5C0070C784 /* YYTextLine.m in Sources */,
+				16E77E9B2011DE5C0070C784 /* YYTextLayout.m in Sources */,
+				16E77EA52011DE5C0070C784 /* NSParagraphStyle+YYText.m in Sources */,
+				1680DA73200EF63F00722D02 /* ZegoPlayViewController.m in Sources */,
+				1673CC0A2021CD4E00392B06 /* ZegoFinalStatViewController.m in Sources */,
+				1673CC1720235C2500392B06 /* ZegoUserCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1680DA5D200EF0F100722D02 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1680DA5E200EF0F100722D02 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1680DA62200EF0F100722D02 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1680DA63200EF0F100722D02 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1680DA68200EF0F100722D02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1680DA69200EF0F100722D02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1680DA6B200EF0F100722D02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3WR2G89LR2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs",
+					"$(PROJECT_DIR)/thirdLib",
+				);
+				INFOPLIST_FILE = LiveQuiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zego.LiveQuiz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1680DA6C200EF0F100722D02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3WR2G89LR2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs",
+					"$(PROJECT_DIR)/thirdLib",
+				);
+				INFOPLIST_FILE = LiveQuiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zego.LiveQuiz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1680DA4F200EF0F100722D02 /* Build configuration list for PBXProject "LiveQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1680DA68200EF0F100722D02 /* Debug */,
+				1680DA69200EF0F100722D02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1680DA6A200EF0F100722D02 /* Build configuration list for PBXNativeTarget "LiveQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1680DA6B200EF0F100722D02 /* Debug */,
+				1680DA6C200EF0F100722D02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1680DA4C200EF0F100722D02 /* Project object */;
+}
