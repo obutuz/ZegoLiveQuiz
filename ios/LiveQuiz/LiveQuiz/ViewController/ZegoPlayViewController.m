@@ -17,6 +17,7 @@
 #import "ZegoQuizInfo.h"
 #import "ZegoFinalStatViewController.h"
 #import "ZegoActivityInfo.h"
+#import "ZegoLogTableViewController.h"
 
 #define COUNTDOWN 5;
 
@@ -124,6 +125,14 @@ static NSString * const sumKey = @"sum";
 
 #pragma mark - Event response
 
+- (void)onShowLog:(id)sender {
+    ZegoLogTableViewController *logViewController = [[ZegoLogTableViewController alloc] init];
+    logViewController.logArray = self.logArray;
+    
+    ZegoLogNavigationController *navigationController = [[ZegoLogNavigationController alloc] initWithRootViewController:logViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
 - (IBAction)onClose:(id)sender {
     [[ZegoSDKManager api] stopPlayingStream:self.streamID];
     [[ZegoSDKManager api] logoutRoom];
@@ -135,6 +144,10 @@ static NSString * const sumKey = @"sum";
     if (self.customCommentView.commentInput.isEditing) {
         [self.customCommentView.commentInput resignFirstResponder];
     }
+}
+
+- (void)onTapViewFive:(UIGestureRecognizer *)gesture {
+    [self onShowLog:gesture];
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
@@ -226,6 +239,7 @@ static NSString * const sumKey = @"sum";
     self.videoSizeDict = [[NSMutableDictionary alloc] initWithCapacity:self.maxStreamCount];
     self.streamID2SizeDict = [[NSMutableDictionary alloc] initWithCapacity:self.maxStreamCount];
     self.originStreamList = [[NSMutableArray alloc] initWithCapacity:self.maxStreamCount];
+    self.logArray = [[NSMutableArray alloc] init];
     
     self.isLoginSucceeded = NO;
     self.isPlaying = NO;
@@ -257,6 +271,10 @@ static NSString * const sumKey = @"sum";
     // 手势
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapView:)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
+    
+    UITapGestureRecognizer *tapGestureRecognizerFive = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapViewFive:)];
+    tapGestureRecognizerFive.numberOfTapsRequired = 5;
+    [self.view addGestureRecognizer:tapGestureRecognizerFive];
 }
 
 - (void)setupNotification {
@@ -302,7 +320,8 @@ static NSString * const sumKey = @"sum";
 }
 
 - (void)playStreamDirectly {
-    NSLog(@"play stream directly");
+    [self addLogString:@"Play Stream Directly"];
+    NSLog(@"Play Stream Directly");
     
     UIView *bigView = [[UIView alloc] init];
     bigView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -437,6 +456,7 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
         }
         
         NSLog(@"%s, type: %@, activityId: %@, questionId: %@", __func__, info[@"type"], info[@"data"][@"id"], info[@"data"][@"activity_id"]);
+        [selfObject addLogString:[NSString stringWithFormat:@"%s, type: %@, activityId: %@, questionId: %@", __func__, info[@"type"], info[@"data"][@"id"], info[@"data"][@"activity_id"]]];
         
         mediaSeq = seq;
         
@@ -556,6 +576,7 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
     NSDictionary *data = info[@"data"];
     NSString *quizID = data[@"id"];
     if (![quizID isEqualToString:self.currentQuiz.quizID]) {
+        [self addLogString:@"received answer, but quizID mismatch, abandon"];
         NSLog(@"received answer, but quizID mismatch, abandon");
         return;
     }
@@ -716,15 +737,15 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
     NSLog(@"%s, streamID:%@", __func__, streamID);
     
     if (stateCode == 0) {
-        NSLog(@"播放流成功，流ID: %@", streamID);
-        NSString *logString = [NSString stringWithFormat:NSLocalizedString(@"播放流成功, 流ID:%@", nil), streamID];
+        NSString *logString = [NSString stringWithFormat:NSLocalizedString(@"播放流成功, streamID: %@", nil), streamID];
+        NSLog(@"%@", logString);
         [self addLogString:logString];
         
         self.isPlaying = YES;
         self.retryPlayIndex = 0;
     } else {
-        NSLog(@"播放流失败，流ID: %@，error：%d", streamID, stateCode);
-        NSString *logString = [NSString stringWithFormat:NSLocalizedString(@"播放流失败, 流ID:%@,  error:%d", nil), streamID, stateCode];
+        NSString *logString = [NSString stringWithFormat:NSLocalizedString(@"播放流失败, 流ID: %@, error: %d", nil), streamID, stateCode];
+        NSLog(@"%@", logString);
         [self addLogString:logString];
         
         self.retryPlayIndex ++;
@@ -751,7 +772,7 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
 {
     NSLog(@"%s, streamID %@", __func__, streamID);
     
-    NSString *logString = [NSString stringWithFormat:NSLocalizedString(@"第一帧画面, 流ID:%@", nil), streamID];
+    NSString *logString = [NSString stringWithFormat:NSLocalizedString(@"第一帧画面, streamID: %@", nil), streamID];
     [self addLogString:logString];
 
     UIView *view = self.viewContainers[streamID];
@@ -761,14 +782,17 @@ void onReceivedMediaSideInfo(const char *pszStreamID, const unsigned char* buf, 
 #pragma mark - ZegoRoomDelegate
 
 - (void)onDisconnect:(int)errorCode roomID:(NSString *)roomID {
-    NSLog(@"%s, roomID: %@, error: %d", __func__, roomID, errorCode);
+    NSString *logString = [NSString stringWithFormat:@"%s, roomID: %@, error: %d", __func__, roomID, errorCode];
+    [self addLogString:logString];
+    NSLog(@"%@", logString);
     
     [self retryConnect:roomID];
     self.retryConnectIndex ++;
 }
 
 - (void)onReconnect:(int)errorCode roomID:(NSString *)roomID {
-     NSLog(@"%s, roomID: %@, error: %d", __func__, roomID, errorCode);
+    NSString *logString = [NSString stringWithFormat:@"%s, roomID: %@, error: %d", __func__, roomID, errorCode];
+    [self addLogString:logString];
 }
 
 - (void)retryConnect:(NSString *)roomID {

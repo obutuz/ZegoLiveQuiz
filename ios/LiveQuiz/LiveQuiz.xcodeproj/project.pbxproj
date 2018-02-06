@@ -21,6 +21,7 @@
 		1626229820198DBD00E55A09 /* UIView+TapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1626229720198DBD00E55A09 /* UIView+TapAction.m */; };
 		1626229B2019B43500E55A09 /* ZegoQuizParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1626229A2019B43500E55A09 /* ZegoQuizParser.m */; };
 		1626229E201A0BD700E55A09 /* ZegoQuizInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1626229D201A0BD700E55A09 /* ZegoQuizInfo.m */; };
+		165507A92028A764007C30B7 /* ZegoRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 165507A82028A764007C30B7 /* ZegoRoomViewController.m */; };
 		1673CC0A2021CD4E00392B06 /* ZegoFinalStatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673CC082021CD4E00392B06 /* ZegoFinalStatViewController.m */; };
 		1673CC0B2021CD4E00392B06 /* ZegoFinalStatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1673CC092021CD4E00392B06 /* ZegoFinalStatViewController.xib */; };
 		1673CC0E20230B1E00392B06 /* ZegoActivityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673CC0D20230B1E00392B06 /* ZegoActivityInfo.m */; };
@@ -109,6 +110,8 @@
 		1626229A2019B43500E55A09 /* ZegoQuizParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoQuizParser.m; sourceTree = "<group>"; };
 		1626229C201A0BD700E55A09 /* ZegoQuizInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoQuizInfo.h; sourceTree = "<group>"; };
 		1626229D201A0BD700E55A09 /* ZegoQuizInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoQuizInfo.m; sourceTree = "<group>"; };
+		165507A72028A764007C30B7 /* ZegoRoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoRoomViewController.h; sourceTree = "<group>"; };
+		165507A82028A764007C30B7 /* ZegoRoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoRoomViewController.m; sourceTree = "<group>"; };
 		1673CC072021CD4E00392B06 /* ZegoFinalStatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoFinalStatViewController.h; sourceTree = "<group>"; };
 		1673CC082021CD4E00392B06 /* ZegoFinalStatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoFinalStatViewController.m; sourceTree = "<group>"; };
 		1673CC092021CD4E00392B06 /* ZegoFinalStatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZegoFinalStatViewController.xib; sourceTree = "<group>"; };
@@ -307,6 +310,8 @@
 			children = (
 				1680DA6E200EF61F00722D02 /* ZegoHomeViewController.h */,
 				1680DA6F200EF61F00722D02 /* ZegoHomeViewController.m */,
+				165507A72028A764007C30B7 /* ZegoRoomViewController.h */,
+				165507A82028A764007C30B7 /* ZegoRoomViewController.m */,
 				1680DA71200EF63F00722D02 /* ZegoPlayViewController.h */,
 				1680DA72200EF63F00722D02 /* ZegoPlayViewController.m */,
 				1680DA74200EF75D00722D02 /* ZegoQuizViewController.h */,
@@ -615,6 +620,7 @@
 				1609577D201090E4005ADC96 /* ZegoCommentView.m in Sources */,
 				16E77E9C2011DE5C0070C784 /* YYTextLine.m in Sources */,
 				16E77E9B2011DE5C0070C784 /* YYTextLayout.m in Sources */,
+				165507A92028A764007C30B7 /* ZegoRoomViewController.m in Sources */,
 				16E77EA52011DE5C0070C784 /* NSParagraphStyle+YYText.m in Sources */,
 				1680DA73200EF63F00722D02 /* ZegoPlayViewController.m in Sources */,
 				1673CC0A2021CD4E00392B06 /* ZegoFinalStatViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "ZegoLogTableViewController.h"
+#import "ZegoSDKManager.h"
 
 @interface ZegoLogTableViewController ()
 
@@ -126,14 +127,34 @@
     [self.view addSubview:navigationBar];
     
     UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"完成", nil) style:UIBarButtonItemStylePlain target:self action:@selector(closeLog)];
-    
     [item setRightBarButtonItem:closeItem];
+    
+    UIBarButtonItem *uploadfItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"上传日志", nil) style:UIBarButtonItemStylePlain target:self action:@selector(uploadLog)];
+    [item setLeftBarButtonItem:uploadfItem];
 }
 
 - (void)closeLog {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)uploadLog {
+    [ZegoLiveRoomApi uploadLog];
+    [self showAlert:@"日志上传成功" title:@"提示"];
+}
 
+- (void)showAlert:(NSString *)message title:(NSString *)title {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil)
+                                                      style:UIAlertActionStyleDefault
+                                                    handler:^(UIAlertAction * _Nonnull action) {
+                                                        
+                                                    }];
+    
+    [alertController addAction:confirm];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 @end

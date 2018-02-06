@@ -12,11 +12,11 @@
 #import "UILabel+ChangeTextSpace.h"
 #import "ZegoLabel.h"
 
-NSString *const zegoDomain      = @"zego.im";
-NSString *const alphaBaseUrl    = @"https://alpha-liveroom-api.zego.im";
-NSString *const testBaseUrl     = @"https://test2-liveroom-api.zego.im";
-NSString *const quizRoomPrefix  = @"ZegoQuiz-Windows-";
-NSString *const enterPlayingIdentifier = @"EnterPlayingIdentifier";
+static NSString *const zegoDomain      = @"zego.im";
+static NSString *const alphaBaseUrl    = @"https://alpha-liveroom-api.zego.im";
+static NSString *const testBaseUrl     = @"https://test2-liveroom-api.zego.im";
+static NSString *const quizRoomPrefix  = @"ZegoQuiz-Windows-";
+static NSString *const enterPlayingIdentifier = @"EnterPlayingIdentifier";
 
 @interface ZegoHomeViewController ()
 
@@ -107,7 +107,7 @@ NSString *const enterPlayingIdentifier = @"EnterPlayingIdentifier";
 }
 
 - (void)applicationBecomeActive {
-    [self setupViewState:NO];
+    [self fetchLiveRoom];
 }
 
 - (IBAction)onInviteFriend:(id)sender {
