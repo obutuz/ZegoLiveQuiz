@@ -1,0 +1,66 @@
+<resources>
+
+
+    <!--logo距离-->
+    <dimen name="logo_top">34dp</dimen>
+    <dimen name="logo_bottom">13dp</dimen>
+    <!--字体-->
+    <dimen name="font_14sp">14sp</dimen>
+    <dimen name="font_47sp">47sp</dimen>
+    <dimen name="font_18sp">18sp</dimen>
+    <dimen name="font_20sp">20sp</dimen>
+    <dimen name="font_42sp">42sp</dimen>
+    <dimen name="font_25sp">25sp</dimen>
+
+
+    <!--下场时间和奖金-->
+    <dimen name="dimen_103dp">103dp</dimen>
+    <dimen name="dimen_25dp">25dp</dimen>
+    <dimen name="dimen_14dp">14dp</dimen>
+    <dimen name="dimen_19dp">19dp</dimen>
+    <dimen name="dimen_10dp">10dp</dimen>
+    <dimen name="dimen_1dp">1dp</dimen>
+    <dimen name="dimen_32dp">32dp</dimen>
+    <dimen name="dimen_37dp">37dp</dimen>
+    <dimen name="dimen_325dp">325dp</dimen>
+    <dimen name="dimen_17dp">17dp</dimen>
+    <dimen name="dimen_22dp">22dp</dimen>
+    <dimen name="dimen_184dp">184dp</dimen>
+    <dimen name="dimen_15dp">15dp</dimen>
+    <dimen name="dimen_6dp">6dp</dimen>
+    <dimen name="dimen_70dp">70dp</dimen>
+    <dimen name="dimen_145dp">145dp</dimen>
+    <dimen name="dimen_44dp">44dp</dimen>
+    <dimen name="dimen_20dp">20dp</dimen>
+    <dimen name="dimen_5dp">5dp</dimen>
+    <dimen name="dimen_4dp">4dp</dimen>
+    <dimen name="dimen_148dp">148dp</dimen>
+    <dimen name="dimen_375dp">375dp</dimen>
+    <dimen name="dimen_150dp">150dp</dimen>
+    <dimen name="dimen_345dp">345dp</dimen>
+    <dimen name="dimen_35dp">35dp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="font_16sp">16sp</dimen>
+    <dimen name="dimen_59dp">59dp</dimen>
+    <dimen name="dimen_60dp">60dp</dimen>
+    <dimen name="dimen_64dp">64dp</dimen>
+    <dimen name="dimen_275dp">275dp</dimen>
+    <dimen name="dimen_40dp">40dp</dimen>
+    <dimen name="dimen_305dp">305dp</dimen>
+    <dimen name="dimen_48dp">48dp</dimen>
+    <dimen name="font_15sp">15sp</dimen>
+    <dimen name="font_12sp">12sp</dimen>
+    <dimen name="dimen_30dp">30dp</dimen>
+    <dimen name="dimen_56dp">56dp</dimen>
+    <dimen name="font_35sp">35sp</dimen>
+    <dimen name="dimen_52dp">52dp</dimen>
+    <dimen name="dimen_246dp">246dp</dimen>
+    <dimen name="font_13sp">13sp</dimen>
+    <dimen name="dimen_7dp">7dp</dimen>
+    <dimen name="dimen_172dp">172dp</dimen>
+    <dimen name="dimen_295dp">295dp</dimen>
+    <dimen name="dimen_16dp">16dp</dimen>
+    <dimen name="dimen_45dp">45dp</dimen>
+    <dimen name="dimen_12dp">12dp</dimen>
+
+</resources>

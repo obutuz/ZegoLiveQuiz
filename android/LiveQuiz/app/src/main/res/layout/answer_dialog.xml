@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/answer_view"
+    android:visibility="gone"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginRight="@dimen/dimen_15dp"
+
+        android:layout_marginTop="@dimen/dimen_59dp"
+        android:background="@drawable/room_subject"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dimen_15dp"
+        android:paddingTop="@dimen/dimen_40dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="@dimen/dimen_275dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="在微型计算机中，微处理器芯片上集成的是______"
+            android:textColor="@color/text_color_under_common_headings"
+            android:textSize="@dimen/font_18sp" />
+
+        <LinearLayout
+            android:id="@+id/answer_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimen_15dp">
+
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/12"
+                android:textColor="@color/color_gray"
+                android:textSize="@dimen/font_12sp" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/countdown_bj"
+        android:layout_width="@dimen/dimen_64dp"
+        android:layout_height="@dimen/dimen_64dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_32dp"
+        android:background="@mipmap/countdown_seconds">
+
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="9"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/font_35sp" />
+
+    </FrameLayout>
+
+
+</RelativeLayout>

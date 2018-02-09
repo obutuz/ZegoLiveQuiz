@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- 背景 -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/background" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/logo_bottom"
+                android:layout_marginTop="@dimen/logo_top"
+                android:background="@mipmap/logo" />
+            <!--奖金数量-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_103dp">
+
+                <LinearLayout
+                    android:id="@+id/estimated_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_103dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dimen_25dp"
+                            android:text="@string/today"
+                            android:textColor="@color/color_white"
+                            android:textSize="@dimen/font_14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="top"
+                            android:includeFontPadding="false"
+                            android:text="20:00"
+                            android:textColor="@color/color_white"
+                            android:textSize="@dimen/font_47sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dimen_25dp"
+                            android:text="@string/bonus"
+                            android:textColor="@color/color_white"
+                            android:textSize="@dimen/font_14sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
+                                android:text="100"
+                                android:textColor="@color/color_white"
+                                android:textSize="@dimen/font_47sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/unit"
+                                android:textColor="@color/color_white"
+                                android:textSize="@dimen/font_18sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/live_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_103dp"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dimen_19dp"
+                        android:text="@string/ongoing_title"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/font_20sp" />
+
+                    <Button
+                        android:id="@+id/go_watch"
+                        android:layout_width="100dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dimen_14dp"
+                        android:background="@drawable/homepage_watch"
+                        android:text="@string/go_watch"
+                        android:textColor="@color/color_blue"
+                        android:textSize="@dimen/font_14sp"
+                        />
+
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+
+            <!--个人信息-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_325dp"
+                    android:layout_height="@dimen/dimen_184dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_30dp"
+                    android:background="@drawable/homepage_subject"
+                    android:elevation="@dimen/dimen_5dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="6dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="62dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@mipmap/head_portrait" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:text="Ramon"
+                        android:textColor="@color/color_blue"
+                        android:textSize="@dimen/font_18sp" />
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dimen_325dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_22dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/my_bonus"
+                                android:textColor="@color/color_gray" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_17dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/bonus_units"
+                                    android:textColor="@color/color_blue"
+                                    android:textSize="@dimen/font_25sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:includeFontPadding="false"
+                                    android:text="368"
+                                    android:textColor="@color/color_blue"
+                                    android:textSize="@dimen/font_42sp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_1dp"
+                            android:layout_height="@dimen/dimen_32dp"
+                            android:layout_marginTop="@dimen/dimen_37dp"
+                            android:background="@color/color_line" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_22dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/week_ranking"
+                                android:textColor="@color/color_gray" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_17dp"
+                                android:includeFontPadding="false"
+                                android:text="1000"
+                                android:textColor="@color/color_blue"
+                                android:textSize="@dimen/font_42sp" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </FrameLayout>
+            <!--UI中间2条竖线-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_15dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_6dp"
+                    android:layout_height="@dimen/dimen_15dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/dimen_70dp"
+                    android:background="@color/color_white" />
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_6dp"
+                    android:layout_height="@dimen/dimen_15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="@dimen/dimen_70dp"
+                    android:background="@color/color_white" />
+
+            </RelativeLayout>
+
+            <!--邀请好友-->
+            <RelativeLayout
+                android:layout_width="@dimen/dimen_325dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/homepage_subject"
+                android:elevation="@dimen/dimen_5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/resurrection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:elevation="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dimen_20dp"
+                        android:background="@mipmap/resurrection" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dimen_5dp"
+                        android:text="@string/resurrection"
+                        android:textColor="@color/text_color_under_common_headings"
+                        android:textSize="@dimen/font_14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dimen_4dp"
+                        android:text="X"
+                        android:textColor="@color/text_color_under_common_headings"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dimen_4dp"
+                        android:text="0"
+                        android:textColor="@color/text_color_under_common_headings"
+                        android:textSize="@dimen/font_25sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="@dimen/dimen_145dp"
+                    android:layout_height="@dimen/dimen_44dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimen_20dp"
+                    android:layout_toLeftOf="@+id/resurrection"
+                    android:background="@mipmap/invitation"
+                    android:elevation="6dp"
+                    android:text="@string/invite_friends"
+                    android:textColor="@color/text_color_under_common_headings"
+                    android:textSize="@dimen/font_14sp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dimen_325dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dimen_25dp"
+                android:layout_marginRight="@dimen/dimen_25dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="@dimen/dimen_148dp"
+                    android:layout_height="@dimen/dimen_44dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/homepage_bottom"
+                    android:gravity="center"
+                    android:textSize="@dimen/font_14sp"
+                    android:text="@string/rule_description"
+                    android:textColor="@color/color_white" />
+
+                <Button
+                    android:layout_width="@dimen/dimen_148dp"
+                    android:layout_height="@dimen/dimen_44dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/homepage_bottom"
+                    android:gravity="center"
+                    android:textSize="@dimen/font_14sp"
+                    android:text="@string/ranking_list"
+                    android:textColor="@color/color_white" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/on_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:background="@drawable/homepage_list">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/dimen_12dp"
+            android:layout_marginLeft="@dimen/dimen_25dp"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:background="@mipmap/icon" />
+
+        <TextView
+            android:id="@+id/room_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="即构答题房间"
+            android:textSize="@dimen/font_14sp" />
+
+
+    </LinearLayout>
+
+</FrameLayout>

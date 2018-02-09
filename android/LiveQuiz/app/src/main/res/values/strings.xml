@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">即构答题</string>
+    <string name="ongoing_title">节目正在进行</string>
+    <string name="today">今天</string>
+    <string name="bonus">奖金</string>
+    <string name="unit">万</string>
+    <string name="my_bonus">我的奖金</string>
+    <string name="week_ranking">本周排名</string>
+    <string name="bonus_units">￥</string>
+    <string name="resurrection">复活卡</string>
+    <string name="invite_friends">邀请好友</string>
+    <string name="rule_description">规则说明</string>
+    <string name="ranking_list">排行榜</string>
+    <string name="go_watch">点击观看</string>
+    <string name="comments">参与评论</string>
+    <string name="enter_room">输入房间</string>
+    <string name="refresh">刷新</string>
+    <string name="contact_us">联系我们</string>
+    <string name="contact_remind">您好,分享失败!请安装QQ后再试</string>
+
+</resources>

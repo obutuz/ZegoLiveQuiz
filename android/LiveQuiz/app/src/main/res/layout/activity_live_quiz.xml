@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_live_background"
+        android:orientation="vertical">
+
+        <TextureView
+            android:id="@+id/liveView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="@dimen/dimen_345dp"
+            android:layout_height="@dimen/dimen_59dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_35dp"
+                    android:background="@mipmap/people" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_8dp"
+                    android:text="123456"
+                    android:textColor="@color/color_white"
+                    android:textSize="@dimen/font_16sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:gravity="right">
+
+                <ImageView
+                    android:id="@+id/back_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/dimen_35dp"
+                    android:background="@mipmap/logo_white" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/room_user_list"
+            android:layout_above="@+id/linearLayout"
+            android:layout_width="@dimen/dimen_295dp"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_height="@dimen/dimen_172dp"/>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_52dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_52dp"
+                android:layout_marginLeft="@dimen/dimen_15dp"
+                android:layout_weight="0.6">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_32dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/room_input" />
+
+                <EditText
+                    android:id="@+id/edit_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_32dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_15dp"
+                    android:layout_marginRight="@dimen/dimen_15dp"
+                    android:background="@mipmap/transparent"
+                    android:cursorVisible="false"
+                    android:hint="@string/comments"
+                    android:imeOptions="actionSend"
+                    android:singleLine="true"
+                    android:textColor="@color/input_edit"
+                    android:textColorHint="@color/input_edit"
+                    android:textSize="@dimen/font_13sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_32dp"
+                android:layout_marginLeft="@dimen/dimen_8dp"
+                android:layout_weight="1"
+                android:background="@drawable/room_input"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_7dp"
+                    android:background="@mipmap/resurrection_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_7dp"
+                    android:text="180"
+                    android:textColor="@color/color_white"
+                    android:textSize="@dimen/font_15sp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/dimen_32dp"
+                android:layout_height="@dimen/dimen_32dp"
+                android:layout_marginLeft="@dimen/dimen_8dp"
+                android:layout_marginRight="@dimen/dimen_15dp"
+                android:background="@mipmap/room_share">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/forwarding" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <include
+
+            layout="@layout/answer_dialog" />
+    </RelativeLayout>
+
+</layout>

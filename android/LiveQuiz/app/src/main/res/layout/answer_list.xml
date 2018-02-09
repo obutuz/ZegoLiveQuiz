@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/selected"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48dp"
+        android:layout_gravity="center_horizontal"
+
+        android:background="@drawable/uncheck"
+        android:layout_marginTop="@dimen/dimen_15dp">
+
+        <TextView
+            android:id="@+id/answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_25dp"
+            android:text="A. "
+            android:textColor="@color/text_color_under_common_headings"
+            android:textSize="@dimen/font_15sp" />
+
+        <TextView
+            android:id="@+id/option"
+            android:layout_toRightOf="@+id/answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="  朱文公"
+            android:textColor="@color/text_color_under_common_headings"
+            android:textSize="@dimen/font_15sp" />
+
+        <TextView
+            android:id="@+id/sum_number"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimen_15dp"
+            android:text="433443444"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/text_color_under_common_headings"
+            android:textSize="@dimen/font_14sp" />
+
+    </RelativeLayout>
+
+
+
+</FrameLayout>
