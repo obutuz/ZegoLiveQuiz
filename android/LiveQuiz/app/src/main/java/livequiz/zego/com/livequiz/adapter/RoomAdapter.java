@@ -52,7 +52,8 @@ public class RoomAdapter extends RecyclerView.Adapter {
                 }
             });
         }
-        myViewHolder.room_name.setText(jsonArray.getJSONObject(position).getString("room_name") + position);
+
+        myViewHolder.room_name.setText(jsonArray.getJSONObject(position).getString("room_id"));
     }
 
     @Override

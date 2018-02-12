@@ -13,9 +13,12 @@ import org.json.JSONObject;
 
 import java.nio.ByteBuffer;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import livequiz.zego.com.livequiz.application.ZegoApiManager;
+import livequiz.zego.com.livequiz.entity.Options;
+import livequiz.zego.com.livequiz.entity.User;
 
 /**
  * Created by zego on 2018/2/1.
@@ -87,19 +90,31 @@ public class ZegoCommon {
      * @return
      * @throws JSONException
      */
-    public JSONObject getJsonObjectFrom(ByteBuffer byteBuffer, int dataLen) throws JSONException {
-        byte[] temp = new byte[dataLen - 4];
-        for (int i = 0; i < dataLen - 4; i++) {
-            temp[i] = byteBuffer.get(i + 4);
+    public JSONObject getJsonObjectFrom(ByteBuffer byteBuffer, int dataLen) {
+
+        JSONObject jsonObject = null;
+        try {
+            byte[] temp = new byte[dataLen - 4];
+            for (int i = 0; i < dataLen - 4; i++) {
+                temp[i] = byteBuffer.get(i + 4);
+            }
+            jsonObject = new JSONObject(new String(temp));
+            if (jsonObject == null) {
+
+                return null;
+            }
+            Log.w("getJsonObjectFrom", String.format("json: %s", jsonObject.toString()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
         }
-        JSONObject jsonObject = new JSONObject(new String(temp));
-        Log.w("getJsonObjectFrom", String.format("json: %s", jsonObject.toString()));
         return jsonObject;
     }
 
 
     /**
      * 回复答题Json格式
+     *
      * @param activityId
      * @param questionid
      * @param answer
@@ -119,5 +134,36 @@ public class ZegoCommon {
         return jsonObject;
     }
 
+    public Map<String, Object> getMapFromJsonToMapQuestion(JSONObject jsonObjectData) throws JSONException {
+        List<Options> optionsList = JSON.parseArray(jsonObjectData.getJSONArray("options").toString(), Options.
+                class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("optionsList", optionsList);
+        map.put("title", jsonObjectData.getString("title"));
+        map.put("id", jsonObjectData.getString("id"));
+        map.put("index", jsonObjectData.getString("index"));
+        map.put("activity_id", jsonObjectData.getString("activity_id"));
+        return map;
+    }
+
+    public Map<String, Object> getMapFromJsonToMapAnswer(JSONObject jsonObjectData) throws JSONException {
+        List<Options> answerStatList = JSON.parseArray(jsonObjectData.getJSONArray("answer_stat").toString(), Options.
+                class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("answer_statList", answerStatList);
+        map.put("id", jsonObjectData.getString("id"));
+        map.put("correct_answer", jsonObjectData.getString("correct_answer"));
+        map.put("activity_id", jsonObjectData.getString("activity_id"));
+        return map;
+    }
+    public Map<String, Object> getMapFromJsonToMapSum(JSONObject jsonObjectData) throws JSONException {
+        List<User> user_list = JSON.parseArray(jsonObjectData.getJSONArray("user_list").toString(), User.
+                class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("user_list", user_list);
+        map.put("room_id", jsonObjectData.getString("room_id"));
+        map.put("activity_id", jsonObjectData.getString("activity_id"));
+        return map;
+    }
 
 }

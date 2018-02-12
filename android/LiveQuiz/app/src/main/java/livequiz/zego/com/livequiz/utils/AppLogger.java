@@ -28,7 +28,7 @@ import livequiz.zego.com.livequiz.application.ZegoApplication;
 
 public class AppLogger {
 
-    static final private String TAG = "ZEGO_WWJ";
+    static final private String TAG = "ZEGO_LIVE_QUIZ";
 
     static final private int MSG_ID_WRITE_LOG = 1;
     static final private int MSG_ID_CLEAR_LOG = 2;
@@ -71,7 +71,7 @@ public class AppLogger {
 
                         Log.d(TAG, message);
 
-                        String message_with_time = String.format("%s %s", TimeUtil.getLogStr(), message);
+                        String message_with_time = String.format("%s %s", TimeUtil.getNowTimeStr(), message);
                         mLogList.addFirst(message_with_time);
                         safeWriteLog2File(message_with_time);
 
@@ -190,7 +190,7 @@ public class AppLogger {
 
         Message msg = Message.obtain();
         msg.what = MSG_ID_WRITE_LOG;
-        msg.obj = lclass.getName() + data;
+        msg.obj = lclass.getName() + " :"+data;
         mLogHandler.sendMessage(msg);
     }
 

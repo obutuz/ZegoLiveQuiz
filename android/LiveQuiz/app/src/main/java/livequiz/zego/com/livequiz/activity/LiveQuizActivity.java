@@ -1,6 +1,7 @@
 package livequiz.zego.com.livequiz.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,7 +15,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.zego.zegoliveroom.ZegoLiveRoom;
 import com.zego.zegoliveroom.callback.IZegoLivePlayerCallback;
 import com.zego.zegoliveroom.callback.IZegoLoginCompletionCallback;
@@ -38,6 +38,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,9 +47,12 @@ import livequiz.zego.com.livequiz.R;
 import livequiz.zego.com.livequiz.adapter.RoomMsgAdapter;
 import livequiz.zego.com.livequiz.application.ZegoApiManager;
 import livequiz.zego.com.livequiz.databinding.ActivityLiveQuizBinding;
+import livequiz.zego.com.livequiz.dialog.SumDialog;
+import livequiz.zego.com.livequiz.dialog.WinningBonusDialog;
 import livequiz.zego.com.livequiz.entity.BigMessage;
 import livequiz.zego.com.livequiz.entity.Options;
 import livequiz.zego.com.livequiz.entity.SerializableMap;
+import livequiz.zego.com.livequiz.entity.User;
 import livequiz.zego.com.livequiz.module.ui.ModuleActivity;
 import livequiz.zego.com.livequiz.utils.AnswerDialog;
 import livequiz.zego.com.livequiz.utils.AppLogger;
@@ -61,12 +65,11 @@ public class LiveQuizActivity extends ModuleActivity {
 
     private SerializableMap roomMap = null;
     private ZegoLiveRoom mZegoLiveRoom = ZegoApiManager.getInstance().getZegoLiveRoom();
-
+    final int ANSWER_DIALOG = 0;
+    final int ATATISTICS_ANSWER = 1;
+    final int SUM_ANSWER = 3;
     int mediaSeq = -1;
-    /**
-     * 房间人数
-     */
-    private int mCurrentQueueCount;
+
     public ActivityLiveQuizBinding binding;
     /**
      * 流
@@ -77,23 +80,39 @@ public class LiveQuizActivity extends ModuleActivity {
      * 标记app是否在后台.
      */
     private boolean mIsAppInBackground = true;
+    /**
+     * 房间ID
+     */
+    private String room_id;
+    /**
+     * 题目去重map
+     */
+    private Map<String, Boolean> question = new HashMap<>();
+    /**
+     * 答案去重map
+     */
+    private Map<String, Boolean> answer = new HashMap<>();
+    /**
+     * 汇总去重map
+     */
+    private Map<String, Boolean> activity_id = new HashMap<>();
 
     AnswerDialog answerDialog;
     String stream_id;
 
     @SuppressLint("HandlerLeak")
     Handler retryHandler = new Handler() {
-
         @Override
         public void handleMessage(final Message msg) {
+            //答题内容
             final String relayDate = (String) msg.obj;
-
+            //发送答题信息
             mZegoLiveRoom.relay(ZegoRelay.RelayTypeDati, relayDate, new IZegoRelayCallback() {
                 @Override
                 public void onRelay(int errorCode, String roomID, String relayResult) {
                     int msgWhat = msg.what;
                     AppLogger.getInstance().writeLog(this.getClass(), "onRelay errorCode:%d  roomID:%s   relayResult:%s  relayDate:%s  msgWhat:%s", errorCode, roomID, relayResult, relayDate, msgWhat);
-
+                    //如果发送失败,则1秒重复发送一次
                     if (errorCode != 0 && msgWhat < 5) {
                         msgWhat = msgWhat + 1;
                         retryHandler.sendMessageDelayed(retryHandler.obtainMessage(msgWhat, relayDate), 1000);
@@ -115,6 +134,7 @@ public class LiveQuizActivity extends ModuleActivity {
             //拉流
             startPlay();
             answerDialog = new AnswerDialog(this, onAnswerClick);
+
         }
 
 
@@ -149,28 +169,36 @@ public class LiveQuizActivity extends ModuleActivity {
                 finish();
             }
         });
-
+        binding.logLook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * 跳转Activity
+                 */
+                stcartActivity(LiveQuizActivity.this, LogActivity.class, null);
+            }
+        });
     }
 
     /**
-     * 发送房间消息
+     * 发送房间不可靠消息
      *
-     * @param msg
+     * @param msg 消息内容
      */
     private void sendBigRoomMsg(String msg) {
         AppLogger.getInstance().writeLog(this.getClass(), "sendBigRoomMsg msg %s", msg);
-
         BigMessage bigMessage = new BigMessage();
         bigMessage.setContent(msg);
         bigMessage.setFromUserName(android.os.Build.MODEL);
         roomAdapter.addMsgToString(bigMessage);
-
         mZegoLiveRoom.sendBigRoomMessage(ZegoIM.MessageType.Text, ZegoIM.MessageCategory.Chat, msg, new IZegoBigRoomMessageCallback() {
             @Override
             public void onSendBigRoomMessage(int errorCode, String roomID, String messageID) {
                 AppLogger.getInstance().writeLog(this.getClass(), "sendBigRoomMsg errorCode %d  roomID %s  messageID  %s", errorCode, roomID, messageID);
+
             }
         });
+
     }
 
 
@@ -179,7 +207,7 @@ public class LiveQuizActivity extends ModuleActivity {
 
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == 0) {
+            if (msg.what == ANSWER_DIALOG) {
                 Map<String, Object> map = (Map<String, Object>) msg.obj;
                 List<Options> optionsList = (List<Options>) map.get("optionsList");
                 String title = (String) map.get("title");
@@ -187,17 +215,26 @@ public class LiveQuizActivity extends ModuleActivity {
                 String id = (String) map.get("id");
                 String activity_id = (String) map.get("activity_id");
                 answerDialog(optionsList, title, activity_id, id, index);
-            } else if (msg.what == 1) {
+            } else if (msg.what == ATATISTICS_ANSWER) {
                 Map<String, Object> map = (Map<String, Object>) msg.obj;
                 List<Options> answerStatList = (List<Options>) map.get("answer_statList");
                 String correctAnswer = (String) map.get("correct_answer");
                 String id = (String) map.get("id");
                 String activity_id = (String) map.get("activity_id");
                 atatisticsAnswer(answerStatList, activity_id, id, correctAnswer);
+            } else if (msg.what == SUM_ANSWER) {
+                Map<String, Object> map = (Map<String, Object>) msg.obj;
+                List<User> user_list = (List<User>) map.get("user_list");
+                String room_id = (String) map.get("room_id");
+                String activity_id = (String) map.get("activity_id");
+                sumAnswer(room_id, activity_id, user_list);
+
             }
 
 
         }
+
+
     };
 
 
@@ -205,7 +242,8 @@ public class LiveQuizActivity extends ModuleActivity {
 
         List<Map<String, String>> stream_info = (List<Map<String, String>>) roomMap.getMap().get("stream_info");
         stream_id = stream_info.get(0).get("stream_id");
-        Log.w("zego_live:", String.format("stream_id : %s room_id : %s", stream_id, roomMap.getMap().get("room_id")));
+        room_id = (String) roomMap.getMap().get("room_id");
+        Log.w("zego_live:", String.format("stream_id : %s room_id : %s", stream_id, room_id));
         mZegoStream = new ZegoStream(stream_info.get(0).get("stream_id"), binding.liveView);
 
         /**
@@ -225,19 +263,12 @@ public class LiveQuizActivity extends ModuleActivity {
                             zegoUser.userID = streamInfo.userID;
                             zegoUser.userName = streamInfo.userName;
                             AppLogger.getInstance().writeLog(this.getClass(), "userID :%s userName :%s ", zegoUser.userID, zegoUser.userName);
-
-                            Map<String, Object> map = ZegoCommon.getInstance().getMapFromJsonToObject(streamInfo.extraInfo);
-                            if (map != null && map.get("queue_number") != null) {
-                                int count = ((Double) map.get("queue_number")).intValue();
-                                mCurrentQueueCount = count;
-                            }
                         }
                     }
 
                 }
             }
         });
-
 
         mZegoLiveRoom.setZegoLivePlayerCallback(new IZegoLivePlayerCallback() {
             @Override
@@ -261,7 +292,9 @@ public class LiveQuizActivity extends ModuleActivity {
             }
 
             @Override
-            public void onVideoSizeChangedTo(String s, int i, int i1) {
+            public void onVideoSizeChangedTo(String s, int width, int height) {
+
+
 
             }
 
@@ -305,56 +338,66 @@ public class LiveQuizActivity extends ModuleActivity {
         });
 
 
+        /**
+         * 设置回调,接收媒体次要信息
+         */
         mZegoLiveRoom.setZegoMediaSideCallback(new IZegoMediaSideCallback() {
             @Override
             public void onRecvMediaSideInfo(String streamID, ByteBuffer byteBuffer, int dataLen) {
                 try {
                     if (dataLen == 0) {
-
                         AppLogger.getInstance().writeLog(this.getClass(), "onRecvMediaSideInfo data is empty");
-
                         return;
                     }
+                    //转换成JSONObject格式
                     JSONObject jsonObject = ZegoCommon.getInstance().getJsonObjectFrom(byteBuffer, dataLen);
-                    int error = 0;
-                    if (error == 0) {
-                        int seq;
-                        seq = jsonObject.getInt("seq");
-
-                        if (seq <= mediaSeq) {
-                            AppLogger.getInstance().writeLog(this.getClass(), "onRecvMediaSideInfo repeat seq %d, discard  mediaSeq  %d", seq, mediaSeq);
-
-
-                            return;
-                        }
-                        mediaSeq = seq;
-                    }
                     JSONObject jsonObjectData = jsonObject.getJSONObject("data");
                     /**
                      * 显示答题
                      */
                     if (!jsonObject.isNull("type") && "question".equals(jsonObject.getString("type"))) {
-                        List<Options> optionsList = JSON.parseArray(jsonObjectData.getJSONArray("options").toString(), Options.
-                                class);
-                        Map<String, Object> map = new HashMap<>();
-                        map.put("optionsList", optionsList);
-                        map.put("title", jsonObjectData.getString("title"));
-                        map.put("id", jsonObjectData.getString("id"));
-                        map.put("index", jsonObjectData.getString("index"));
-                        map.put("activity_id", jsonObjectData.getString("activity_id"));
-                        handler.sendMessage(handler.obtainMessage(0, map));
+                        if (question.containsKey(jsonObjectData.getString("id")) && question.get(jsonObjectData.getString("id"))) {
+                            AppLogger.getInstance().writeLog(this.getClass(), "the question_id to weight question");
+                            return;
+                        } else {
+                            question.put(jsonObjectData.getString("id"), true);
+                            AppLogger.getInstance().writeLog(this.getClass(), "add question_id  to weight question");
+
+                        }
+                        //转换成map格式
+                        Map<String, Object> map = ZegoCommon.getInstance().getMapFromJsonToMapQuestion(jsonObjectData);
+                        //当前线程是子线程,需要用handler在主线程控制
+                        handler.sendMessage(handler.obtainMessage(ANSWER_DIALOG, map));
                         /**
                          * 答案处理
                          */
                     } else if (!jsonObject.isNull("type") && "answer".equals(jsonObject.getString("type"))) {
-                        List<Options> answerStatList = JSON.parseArray(jsonObjectData.getJSONArray("answer_stat").toString(), Options.
-                                class);
-                        Map<String, Object> map = new HashMap<>();
-                        map.put("answer_statList", answerStatList);
-                        map.put("id", jsonObjectData.getString("id"));
-                        map.put("correct_answer", jsonObjectData.getString("correct_answer"));
-                        map.put("activity_id", jsonObjectData.getString("activity_id"));
-                        handler.sendMessage(handler.obtainMessage(1, map));
+                        if (answer.containsKey(jsonObjectData.getString("id")) && answer.get(jsonObjectData.getString("id"))) {
+                            AppLogger.getInstance().writeLog(this.getClass(), "the answer_id to weight answer");
+                            return;
+                        } else {
+                            AppLogger.getInstance().writeLog(this.getClass(), "add answer_id to weight answer");
+                            answer.put(jsonObjectData.getString("id"), true);
+                        }
+                        //转换成map格式
+                        Map<String, Object> map = ZegoCommon.getInstance().getMapFromJsonToMapAnswer(jsonObjectData);
+                        //当前线程是子线程,需要用handler在主线程控制
+                        handler.sendMessage(handler.obtainMessage(ATATISTICS_ANSWER, map));
+                        /**
+                         * 汇总处理
+                         */
+                    } else if (!jsonObject.isNull("type") && "sum".equals(jsonObject.getString("type"))) {
+                        if (activity_id.containsKey(jsonObjectData.getString("activity_id")) && activity_id.get(jsonObjectData.getString("activity_id"))) {
+                            AppLogger.getInstance().writeLog(this.getClass(), "the activity_id to weight sum");
+                            return;
+                        } else {
+                            AppLogger.getInstance().writeLog(this.getClass(), "add activity_id to weight sum");
+                            activity_id.put(jsonObjectData.getString("activity_id"), true);
+                        }
+                        //转换成map格式
+                        Map<String, Object> map = ZegoCommon.getInstance().getMapFromJsonToMapSum(jsonObjectData);
+                        //当前线程是子线程,需要用handler在主线程控制
+                        handler.sendMessage(handler.obtainMessage(SUM_ANSWER, map));
                     }
 
                 } catch (org.json.JSONException e) {
@@ -382,28 +425,49 @@ public class LiveQuizActivity extends ModuleActivity {
             }
 
             @Override
-            public void onUpdateOnlineCount(String s, int i) {
-
+            public void onUpdateOnlineCount(String roomId, int onlineCount) {
+                if (roomId != null && roomId.equals(room_id)) {
+                    binding.currentQueueCount.setText(String.valueOf(onlineCount));
+                }
             }
 
             @Override
             public void onRecvBigRoomMessage(String roomID, ZegoBigRoomMessage[] zegoBigRoomMessages) {
-
+                if (roomID == null && !roomID.equals(room_id)) {
+                    AppLogger.getInstance().writeLog(this.getClass(), "receive big room message, but roomId mismatch, abandon roomId:%s", roomID);
+                    return;
+                }
+                if (zegoBigRoomMessages.length == 0) {
+                    AppLogger.getInstance().writeLog(this.getClass(), "receive big room message, but messageList is 0 zegoBigRoomMessages:%d", zegoBigRoomMessages.length);
+                    return;
+                }
                 AppLogger.getInstance().writeLog(this.getClass(), "onRecvBigRoomMessage Im receive  roomID: %s", roomID);
-
                 for (int i = 0; i < zegoBigRoomMessages.length; i++) {
                     BigMessage bigMessage = new BigMessage();
                     bigMessage.setContent(zegoBigRoomMessages[i].content);
                     bigMessage.setFromUserName(zegoBigRoomMessages[i].fromUserName);
                     AppLogger.getInstance().writeLog(this.getClass(), "onRecvBigRoomMessage Im receive  content: %s userName: %s", zegoBigRoomMessages[i].content, zegoBigRoomMessages[i].fromUserName);
-
                     roomAdapter.addMsgToString(bigMessage);
                 }
-
-
             }
         });
 
+    }
+
+
+    /**
+     * 汇总窗口弹出
+     *
+     * @param room_id     房间id
+     * @param activity_id 活动ID
+     * @param user_list   用户列表
+     */
+    private void sumAnswer(String room_id, String activity_id, List<User> user_list) {
+        AppLogger.getInstance().writeLog(this.getClass(), "sumAnswer room_id : %s activityId %s", room_id, activity_id);
+        if (room_id.equals(this.room_id)) {
+            SumDialog sumDialog = new SumDialog(LiveQuizActivity.this);
+            sumDialog.sumWindowDialog(user_list);
+        }
     }
 
 
@@ -421,7 +485,6 @@ public class LiveQuizActivity extends ModuleActivity {
         answerDialog.addAnswerView(optionsList);
         answerDialog.setAnswerTitle(title);
         answerDialog.startAnswerCountdown(8000);
-
     }
 
 
@@ -447,7 +510,6 @@ public class LiveQuizActivity extends ModuleActivity {
         public void onClick(String activityId, String questionId, String answer, String userDate) {
             AppLogger.getInstance().writeLog(this.getClass(),
                     "onAnswerClick onClick activityId : %s questionId : %s answer : %s userDate :%s", activityId, questionId, answer, userDate);
-
             try {
                 String relayDate = ZegoCommon.getInstance().getJsonDateFrom(activityId, questionId, answer, userDate).toString();
                 retryHandler.sendMessage(retryHandler.obtainMessage(0, relayDate));

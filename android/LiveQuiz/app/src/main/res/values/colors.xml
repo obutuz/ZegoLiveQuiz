@@ -10,6 +10,8 @@
     <color name="color_live_background">#5e33b6</color>
     <color name="text_color_under_common_headings">#333333</color>
     <color name="input_edit">#cccccc</color>
-
+    <color name="user_name">#ffe614</color>
+    <color name="basic_blue">#602cb7</color>
+    <color name="color_red">#fc316c</color>
 
 </resources>

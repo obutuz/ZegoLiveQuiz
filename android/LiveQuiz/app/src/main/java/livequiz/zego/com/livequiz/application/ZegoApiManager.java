@@ -26,6 +26,14 @@ public class ZegoApiManager {
     private long mAppID = 0;
     private byte[] mSignKey = null;
 
+    public String getmUserID() {
+        return mUserID;
+    }
+
+    public void setmUserID(String mUserID) {
+        this.mUserID = mUserID;
+    }
+
     private String mUserID = null;
 
     private ZegoApiManager() {
@@ -59,6 +67,7 @@ public class ZegoApiManager {
         }
         // 必须设置用户信息
         ZegoLiveRoom.setUser(mUserID, userName);
+
     }
 
 
@@ -69,8 +78,8 @@ public class ZegoApiManager {
         mAppID = appID;
         mSignKey = signKey;
 
-       // mZegoLiveRoom.setTestEnv(true);
-        ZegoLiveRoom.SDKContext sdkContext =new ZegoLiveRoom.SDKContext() {
+        // mZegoLiveRoom.setTestEnv(true);
+        ZegoLiveRoom.SDKContext sdkContext = new ZegoLiveRoom.SDKContext() {
             @Override
             public String getSoFullPath() {
                 return null;
@@ -107,7 +116,7 @@ public class ZegoApiManager {
     public void initSDK(ZegoApplication context) {
         long appID = 1739272706l;
         byte[] signKey = {(byte) 0x1e, (byte) 0xc3, (byte) 0xf8, (byte) 0x5c, (byte) 0xb2, (byte) 0xf2, (byte) 0x13, (byte) 0x70, (byte) 0x26, (byte) 0x4e, (byte) 0xb3, (byte) 0x71, (byte) 0xc8, (byte) 0xc6, (byte) 0x5c, (byte) 0xa3, (byte) 0x7f, (byte) 0xa3, (byte) 0x3b, (byte) 0x9d, (byte) 0xef, (byte) 0xef, (byte) 0x2a, (byte) 0x85, (byte) 0xe0, (byte) 0xc8, (byte) 0x99, (byte) 0xae, (byte) 0x82, (byte) 0xc0, (byte) 0xf6, (byte) 0xf8};
-        init(appID, signKey,context);
+        init(appID, signKey, context);
     }
 
     public void releaseSDK() {

@@ -17,7 +17,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout2"
-            android:layout_width="@dimen/dimen_345dp"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_59dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -37,11 +37,12 @@
                     android:background="@mipmap/people" />
 
                 <TextView
+                    android:id="@+id/current_queue_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dimen_8dp"
-                    android:text="123456"
+                    android:text=""
                     android:textColor="@color/color_white"
                     android:textSize="@dimen/font_16sp" />
 
@@ -69,12 +70,10 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/room_user_list"
-            android:layout_above="@+id/linearLayout"
             android:layout_width="@dimen/dimen_295dp"
-            android:layout_marginLeft="@dimen/dimen_16dp"
-            android:layout_height="@dimen/dimen_172dp"/>
-
-
+            android:layout_height="@dimen/dimen_172dp"
+            android:layout_above="@+id/linearLayout"
+            android:layout_marginLeft="@dimen/dimen_16dp" />
 
 
         <LinearLayout
@@ -90,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_52dp"
                 android:layout_marginLeft="@dimen/dimen_15dp"
-                android:layout_weight="0.6">
+                android:layout_weight="0.3">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -121,42 +120,20 @@
                 android:layout_marginLeft="@dimen/dimen_8dp"
                 android:layout_weight="1"
                 android:background="@drawable/room_input"
+                android:gravity="center"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/dimen_7dp"
-                    android:background="@mipmap/resurrection_white" />
-
                 <TextView
+                    android:id="@+id/log_look"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/dimen_7dp"
-                    android:text="180"
-                    android:textColor="@color/color_white"
-                    android:textSize="@dimen/font_15sp" />
+                    android:layout_gravity="center"
+                    android:text="@string/log"
+                    android:textColor="@color/input_edit"
+                    android:textSize="@dimen/font_13sp" />
+
 
             </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="@dimen/dimen_32dp"
-                android:layout_height="@dimen/dimen_32dp"
-                android:layout_marginLeft="@dimen/dimen_8dp"
-                android:layout_marginRight="@dimen/dimen_15dp"
-                android:background="@mipmap/room_share">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:background="@mipmap/forwarding" />
-
-
-            </RelativeLayout>
 
 
         </LinearLayout>

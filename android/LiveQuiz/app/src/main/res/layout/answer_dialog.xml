@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/answer_view"
-    android:visibility="gone"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:visibility="gone">
 
 
     <LinearLayout
@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dimen_15dp"
         android:layout_marginRight="@dimen/dimen_15dp"
-
         android:layout_marginTop="@dimen/dimen_59dp"
         android:background="@drawable/room_subject"
         android:gravity="center_horizontal"
@@ -42,7 +41,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/dimen_15dp">
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/count"
@@ -70,8 +70,8 @@
         <TextView
             android:id="@+id/timer"
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="9"
             android:textColor="@color/color_white"
             android:textSize="@dimen/font_35sp" />

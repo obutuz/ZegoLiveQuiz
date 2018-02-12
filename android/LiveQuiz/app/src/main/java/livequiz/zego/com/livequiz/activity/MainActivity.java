@@ -1,7 +1,6 @@
 package livequiz.zego.com.livequiz.activity;
 
 
-
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -45,6 +44,7 @@ public class MainActivity extends ModuleActivity implements View.OnClickListener
         initView();
         refresh();
 
+
     }
 
     RoomAdapter roomAdapter = new RoomAdapter();
@@ -57,7 +57,7 @@ public class MainActivity extends ModuleActivity implements View.OnClickListener
                 serializableMap.setMap((JSONObject) view.getTag());
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("room", serializableMap);
-                AppLogger.getInstance().writeLog(this.getClass(), "onItemClick room:%s", JSON.toJSON(serializableMap.getMap()));
+                AppLogger.getInstance().writeLog(this.getClass(), "onItemClick room: %s", JSON.toJSON(serializableMap.getMap()));
                 stcartActivity(view.getContext(), LiveQuizActivity.class, bundle);
             }
         });
@@ -70,18 +70,17 @@ public class MainActivity extends ModuleActivity implements View.OnClickListener
         // 设置刷新点击事件
         binding.refresh.setOnClickListener(this);
         // 设置输入房间点击事件
-        binding.contactUs.setOnClickListener(this);
+        binding.logLook.setOnClickListener(this);
+
 
     }
 
 
     private void refresh() {
-
         String url = String.format(ZegoCommon.roomlist, ZegoApiManager.getInstance().getAppID(), ZegoApiManager.getInstance().getAppID());
-        AppLogger.getInstance().writeLog(this.getClass(), "refresh url:%s", url);
+        AppLogger.getInstance().writeLog(this.getClass(), "refresh url: %s", url);
         //发送请求
         httpUrl(url, "roomList");
-
     }
 
     @Override
@@ -90,36 +89,47 @@ public class MainActivity extends ModuleActivity implements View.OnClickListener
             try {
                 AppLogger.getInstance().writeLog(this.getClass(), "httpReturn body:%s", body);
                 JSONObject bodyObject = JSON.parseObject(body);
-
                 JSONArray jsonArray = bodyObject.getJSONObject("data").getJSONArray("room_list");
                 roomAdapter.clear();
-
                 for (int i = 0; i < jsonArray.size(); i++) {
                     if (jsonArray.getJSONObject(i).getJSONArray("stream_info").size() > 0) {
-                        AppLogger.getInstance().writeLog(this.getClass(), "httpReturn is quiz-user- body:%s", jsonArray.getJSONObject(i).toJSONString());
+                        AppLogger.getInstance().writeLog(this.getClass(), "httpReturn is quiz room  body:%s", jsonArray.getJSONObject(i).toJSONString());
                         roomAdapter.refreshMsgToJson(jsonArray.getJSONObject(i));
                     }
                 }
+                if (jsonArray.size() == 0) {
+                    binding.prompt.setText(getString(R.string.there_is_no_data_at_the_moment));
+                }else{
+                    binding.prompt.setText("");
+                }
             } catch (Exception e) {
                 AppLogger.getInstance().writeLog(this.getClass(), "httpReturn Convert exceptions json:%s", body);
+                binding.prompt.setText(getString(R.string.there_is_no_data_at_the_moment));
                 e.printStackTrace();
             }
+        } else {
+            binding.prompt.setText(getString(R.string.there_is_no_data_at_the_moment));
         }
 
     }
+
+
 
     @Override
     public void onClick(View v) {
         if (binding.refresh.getId() == v.getId()) {
             refresh();
-        } else if (binding.contactUs.getId() == v.getId()) {
-            try {
-                Tencent.createInstance("", MainActivity.this).startWPAConversation(MainActivity.this, "84328558", "");
-            } catch (Exception e) {
-                Toast.makeText(this, getString(R.string.contact_remind), Toast.LENGTH_LONG).show();
-            }
+        } else if (binding.logLook.getId() == v.getId()) {
+            stcartActivity(v.getContext(), LogActivity.class, null);
+
         }
     }
 
 
+
+    @Override
+    protected void onResume() {
+        refresh();
+        super.onResume();
+    }
 }

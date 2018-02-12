@@ -42,8 +42,9 @@ public class ZegoStream {
             return;
         }
         mZegoLiveRoom.startPlayingStream(mStreamID, mTextureView);
-        mZegoLiveRoom.setViewMode(ZegoVideoViewMode.ScaleAspectFit, mStreamID);
+        mZegoLiveRoom.setViewMode(ZegoVideoViewMode.ScaleAspectFill, mStreamID);
         mZegoLiveRoom.setPlayVolume(volume, mStreamID);
+
     }
 
     public void stopPlayStream() {

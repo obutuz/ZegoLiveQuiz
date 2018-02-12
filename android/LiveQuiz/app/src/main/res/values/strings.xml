@@ -17,5 +17,12 @@
     <string name="refresh">刷新</string>
     <string name="contact_us">联系我们</string>
     <string name="contact_remind">您好,分享失败!请安装QQ后再试</string>
-
+    <string name="congratulations_on_the_following_winners">恭喜以下获胜者</string>
+    <string name="log_look">查看日志</string>
+    <string name="log">日志</string>
+    <string name="update_log">上传日志</string>
+    <string name="update_log_ok">上传日志成功</string>
+    <string name="winning_bonus">闯关成功</string>
+    <string name="congratulations_getting_cash_bonus">恭喜获得现金奖励</string>
+    <string name="there_is_no_data_at_the_moment">当前没有房间</string>
 </resources>

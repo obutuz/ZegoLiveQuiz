@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_30dp"
+        android:layout_marginRight="@dimen/dimen_30dp"
+        android:layout_marginTop="@dimen/dimen_85dp"
+        android:background="@drawable/dialog_base_color"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen_25dp"
+            android:text="@string/winning_bonus"
+            android:textColor="@color/basic_blue"
+            android:textSize="@dimen/font_26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen_25dp"
+            android:text="@string/congratulations_getting_cash_bonus"
+            android:textColor="@color/text_color_under_common_headings"
+            android:textSize="@dimen/font_15sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_19dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="@string/bonus_units"
+                android:textColor="@color/color_red"
+                android:textSize="@dimen/font_25sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="bottom"
+                android:text="718"
+                android:textColor="@color/color_red"
+                android:textSize="@dimen/font_40sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_23dp">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_115dp"
+                android:layout_height="@dimen/dimen_44dp"
+                android:background="@drawable/shut_down" />
+
+            <ImageView
+                android:layout_width="@dimen/dimen_115dp"
+                android:layout_height="@dimen/dimen_44dp"
+                android:background="@drawable/shut_down" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@mipmap/success" />
+</FrameLayout>

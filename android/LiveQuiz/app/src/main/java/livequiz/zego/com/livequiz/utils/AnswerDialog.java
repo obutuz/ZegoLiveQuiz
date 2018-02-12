@@ -207,8 +207,10 @@ public class AnswerDialog implements View.OnClickListener {
         timer.setText("");
         if (correct_answer.equals(userAnswer)) {
             timer.setBackgroundResource(R.mipmap.ok);
+            countdownBackground.setBackgroundResource(R.mipmap.green_background);
         } else {
             timer.setBackgroundResource(R.mipmap.wrong);
+            countdownBackground.setBackgroundResource(R.mipmap.countdown_three);
         }
 
         mcountDownTimer = new CountDownTimer(titme, 1000) {// 第一个参数是总共时间，第二个参数是间隔触发时间

@@ -10,7 +10,7 @@ import java.util.Date;
  */
 
 public class TimeUtil {
-    static final private SimpleDateFormat sFormat = new SimpleDateFormat("yyMMddHHmmssSSS");
+    static final private SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
     static final private SimpleDateFormat sLogFormat = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
 
     static public String getNowTimeStr() {

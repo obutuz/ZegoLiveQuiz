@@ -28,15 +28,25 @@
                 android:layout_marginTop="@dimen/logo_top"
                 android:background="@mipmap/logo" />
 
+            <TextView
+                android:id="@+id/prompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/bottom_view"
+                android:layout_below="@+id/logo"
+                android:layout_centerHorizontal="true"
+                android:text="@string/there_is_no_data_at_the_moment"
+                android:textColor="@color/color_white" />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/room_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/dimen_20dp"
                 android:layout_above="@+id/bottom_view"
                 android:layout_below="@+id/logo"
                 android:layout_marginLeft="@dimen/dimen_25dp"
-                android:layout_marginRight="@dimen/dimen_25dp" />
+                android:layout_marginRight="@dimen/dimen_25dp"
+                android:layout_marginTop="@dimen/dimen_20dp" />
 
 
             <RelativeLayout
@@ -45,32 +55,32 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:gravity="center_vertical"
                 android:layout_marginLeft="@dimen/dimen_25dp"
                 android:layout_marginRight="@dimen/dimen_25dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/contact_us"
+                    android:id="@+id/log_look"
                     android:layout_width="@dimen/dimen_148dp"
                     android:layout_height="@dimen/dimen_44dp"
                     android:layout_alignParentLeft="true"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginTop="@dimen/dimen_20dp"
                     android:layout_marginBottom="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
                     android:background="@drawable/homepage_bottom"
                     android:gravity="center"
-                    android:text="@string/contact_us"
+                    android:text="@string/log_look"
                     android:textColor="@color/color_white"
                     android:textSize="@dimen/font_14sp" />
 
                 <Button
                     android:id="@+id/refresh"
                     android:layout_width="@dimen/dimen_148dp"
-                    android:layout_marginBottom="@dimen/dimen_20dp"
                     android:layout_height="@dimen/dimen_44dp"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/dimen_20dp"
                     android:layout_marginTop="@dimen/dimen_20dp"
                     android:background="@drawable/homepage_bottom"
                     android:gravity="center"
